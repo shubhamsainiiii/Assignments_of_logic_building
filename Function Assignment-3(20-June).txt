@@ -1,0 +1,279 @@
+1. user se 3 input lena agr unka avg 50 se zada aya then ek function call karna hai us function mai 20-30 print karna hai 
+ab agar uska avg 50 se kam ata hai to fir function calling 1-20 print karna hai
+
+#include<bits/stdc++.h>
+using namespace std;
+void A(){
+    for(int i = 21; i<=30; i++){
+        cout<<i<<" ";
+    }
+}
+void B(){
+    for(int i = 1; i<=20; i++){
+        cout<<i<<" ";
+    }
+}
+void avg(int num1,int num2,int num3){
+    float avrg = num1+num2+num3;
+    if(avrg>50){
+        A();
+    }
+    else{
+        B();
+    }
+}
+int main(){
+    int num1,num2,num3;
+    cout<<"enter the value of num1,num2,num3 :\n";
+    cin>>num1>>num2>>num3;
+    avg(num1,num2,num3);
+    return 0;   
+}
+==========================================================================================================================================================
+2.  3 input lena hai usme se jo max hoga agr wo b hota hai to ek function call karna hai aur us 
+function mai 5 ka factorial print karwana , max agar c hota hai to fir c powerof2 ha ya nahi check karna hai, 
+agr max a hota hai to fir apna nam print karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+void name()
+{
+    cout<<"Shubham";
+}
+bool ispoweroftwo(int num3)
+{
+    if(num3>1 && num3%2!=0){
+        return 0;
+    }
+    while(num3%2==0)
+    {
+        num3/=2;
+    }
+    return num3==1;
+}
+void factorial()
+{
+    int n=5;
+    int fact=1;
+    for(int i=1;i<=n;i++){
+        fact=fact*i;
+    }
+    cout<<"The factorial value of 5 is : "<<fact;
+}
+int maxNumber(int num1,int num2,int num3)
+{
+    int max;
+    max=num1;
+    if(max<num2){
+        max=num2;
+    }
+    if(max<num3){
+        max=num3;
+    }
+    return max;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"enter the value of num1,num2 and num3 \n";
+    cin>>num1>>num2>>num3;
+    if(maxNumber(num1,num2,num3)==num1){
+        name();
+    }
+    else if(maxNumber(num1,num2,num3)==num2){
+        factorial();
+    }
+    else if(maxNumber(num1,num2,num3)==num3){
+        if(ispoweroftwo(num3)==1){
+            cout<<"Power of Two";
+        }
+        else{
+            cout<<"Not Power of Two";
+        }
+    }
+    return 0;
+}
+==========================================================================================================================================================
+3. 4 input lena hai unka sum karna hai(input -ve bhi ho sakte hai ) agar unka sum -ve hi ata hai to fir reverse of 2nd number karna hai
+ agr wo 2nd number -ve hota hai to use positive mai karke uska reverse nikalna hai (hint: abs(b)) 
+agr sum +ve hota hai to fir 4 ka factorial nikalna hai agar sum 0 hota hai to fir 4 input ka product nikalna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+void reverse(int num2)
+{
+    num2=abs(num2);
+    int sum=0,rem=0;
+    while(num2>0){
+        rem=num2%10;
+        sum=sum*10+rem;
+        num2=num2/10;
+    }
+    cout<<sum;
+}
+void factorial()
+{
+    int n=4;
+    int fact=1;
+    for(int i=1;i<=n;i++){
+        fact=fact*i;
+    }
+    cout<<"The factorial value of 4 is : "<<fact;
+}
+int  sum(int num1,int num2,int num3,int num4)
+{
+    int add= num1+num2+num3+num4;
+    if(add<0){
+        reverse(num2);
+    }
+    else if(add>0){
+        factorial();
+    }
+    else{
+        cout<<num1*num2*num3*num4;
+    }
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the Value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    sum(num1,num2,num3,num4);
+    return 0;
+}
+==========================================================================================================================================================
+4. 5 input lena hai agar sum greater than 50 hota hai to ek function call karna hai usme mai 1-50 ka sum nikalna hai, agar less than 50 hota hai to fir
+ ek function call karna hai usme 1 input char lene hai aur check karna hai ki wo vowel hai ya nahi. 
+agar equals to 50 hota hai then check karna hai sum even tha ya odd.
+
+#include <bits/stdc++.h>
+using namespace std;
+string evenOdd(int add)
+{
+    if(add%2==0){
+        return "sum is even";
+    }
+    else{
+        return "sum is odd";
+    }
+}
+void isVowel()
+{
+    char c;
+    cout<<"Enter Character\n";
+    cin>>c;
+    c=tolower(c);
+    if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u'){
+        cout<<"This is a Vowel";
+    }
+    else{
+        cout<<"This is not Vowel";
+    }
+}
+
+void sum50()
+{
+    double sum;
+    for(int i=1;i<=50;i++){
+        sum=sum+i;
+    }
+    cout<<sum;
+}
+
+
+int  sum(int num1,int num2,int num3,int num4,int num5)
+{
+    int add= num1+num2+num3+num4+num5;
+    if(add<50){
+       isVowel();
+    }
+    else if(add>50){
+        sum50();
+    }
+    else{
+        cout<<evenOdd(add);
+    }
+    return add;
+}
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the Value of num1,num2,num3,num4,num5 :\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    sum(num1,num2,num3,num4,num5);
+    return 0;
+}
+==========================================================================================================================================================
+5.user se ek input lena hai agr wo input positive hota hai to fir ek function call karna hai usme 2 values lena hai aur
+ unka swap karna hai, agar input -ve hota hai to fir ek function call karna hai aur check karna hai ki wo 
+entered number pallindrome hai ya nahi, agar wo 0 hota hai to fir ek function 
+call karna hai aur usme ek input lena hai and check karna hai ki wo input powerof2 hai ya nahi.
+
+#include <bits/stdc++.h>
+using namespace std;
+bool ispoweroftwo(int num)
+{
+    int a;
+    cout<<"enyter the value of a\n";
+    cin>>a;
+    if(a>1 && a%2!=0){
+        return 0;
+    }
+    while(a%2==0)
+    {
+        a/=2;
+    }
+    return a==1;
+}
+string palindrome(int num)
+{
+    num=abs(num);
+    int rem,sum=0;
+    int newSum=num;
+    while(num>0)
+    {
+        rem =num%10;
+        sum=sum*10+rem;
+        num=num/10;   
+    }
+    if(newSum==sum){
+	    return "This is a Palindrome number";
+    } 
+    else 
+    	return "This is not a Palindrome Number";
+}
+
+void swap()
+{
+    int a,b;
+    cout<<"enter tye value of a,b:\n";
+    cin>>a>>b;
+        a=a+b;
+        b=a-b;
+        a=a-b;
+        cout<<"swap value of a is : "<<a<<"\n";
+        cout<<"swap value of b is : "<<b;
+}
+
+int main()
+{
+    int num;
+    cout<<"Enter the value of num:\n";
+    cin>>num;
+    if(num>0){
+        swap();
+    }
+    else if(num<0){
+        cout<<palindrome(num);
+    }
+    else if(num==0){
+        if(ispoweroftwo(num)==1){
+            cout<<"Power of Two";
+        }
+        else{
+            cout<<"Not Power of Two";
+        }
+    }
+    return 0;
+}
+==========================================================================================================================================================

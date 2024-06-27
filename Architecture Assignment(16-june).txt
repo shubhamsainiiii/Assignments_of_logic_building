@@ -1,0 +1,471 @@
+1.
+#include<bits/stdc++.h>
+using namespace std;
+void D()
+{
+    cout<< "D started\n";
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    D();
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    C();
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+===============================================================================================================================
+2.
+#include<bits/stdc++.h>
+using namespace std;
+
+void J()
+{
+    cout<< "J started\n";
+    cout<< "J completed\n";
+}
+void I()
+{
+    cout<< "I started\n";
+    cout<< "I completed\n";
+}
+void H()
+{
+    cout<< "H started\n";
+    cout<< "H completed\n";
+}
+void G()
+{
+    cout<< "G started\n";
+    cout<< "G completed\n";
+}
+void F()
+{
+    cout<< "F started\n";
+    cout<< "F completed\n";
+}
+void E()
+{
+    cout<< "E started\n";
+    cout<< "E completed\n";
+}
+void D()
+{
+    cout<< "D started\n";
+    I();
+    J();
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    G();
+    H();
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    E();
+    F();
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    C();
+    D();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+============================================================
+3.
+#include<bits/stdc++.h>
+using namespace std;
+void I()
+{
+    cout<< "I started\n";
+    cout<< "I completed\n";
+}
+void H()
+{
+    cout<< "H started\n";
+    cout<< "H completed\n";
+}
+void G()
+{
+    cout<< "G started\n";
+    cout<< "G completed\n";
+}
+void F()
+{
+    cout<< "F started\n";
+    G();
+    H();
+    I();
+    cout<< "F completed\n";
+}
+void E()
+{
+    cout<< "E started\n";
+    cout<< "E completed\n";
+}
+void D()
+{
+    cout<< "D started\n";
+    F();
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    C();
+    D();
+    E();
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+=====================================================
+4.
+#include<bits/stdc++.h>
+using namespace std;
+void F()
+{
+    cout<< "F started\n";
+    cout<< "F completed\n";
+}
+void E()
+{
+    cout<< "E started\n";
+    cout<< "E completed\n";
+}
+void D()
+{
+    cout<< "D started\n";
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    D();
+    E();
+    F();
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    C();
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+============================================
+7.
+#include<bits/stdc++.h>
+using namespace std;
+void G()
+{
+    cout<< "G started\n";
+    cout<< "G completed\n";
+}
+void F()
+{
+    cout<< "F started\n";
+    cout<< "F completed\n";
+}
+void E()
+{
+    cout<< "E started\n";
+    cout<< "E completed\n";
+}
+void D()
+{
+    cout<< "D started\n";
+    E();
+    F();
+    G();
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    D();
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    C();
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+===============================================
+5,
+#include<bits/stdc++.h>
+using namespace std;
+void I()
+{
+    cout<< "I started\n";
+    cout<< "I completed\n";
+}
+void H()
+{
+    cout<< "H started\n";
+    cout<< "H completed\n";
+}
+void G()
+{
+    cout<< "G started\n";
+    I();
+    cout<< "G completed\n";
+}
+void F()
+{
+    cout<< "F started\n";
+    cout<< "F completed\n";
+}
+void E()
+{
+    cout<< "E started\n";
+    F();
+    G();
+    H();
+    cout<< "E completed\n";
+}
+void D()
+{
+    cout<< "D started\n";
+    cout<< "D completed\n";
+}
+void C()
+{
+    cout<< "C started\n";
+    E();
+    cout<<"C completed\n";
+}
+void B()
+{
+    cout<<"B started\n";
+    cout<<"B completed\n";
+}
+void A(){
+    cout<< "A started\n";
+    B();
+    C();
+    D();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+===================================================
+8.
+#include<bits/stdc++.h>
+using namespace std;
+
+void H()
+{
+    cout<<"H started\n";
+    cout<<"H completed\n";
+}
+
+void G()
+{
+    cout<<"G started\n";
+    H();
+    cout<<"G completed\n";
+}
+
+void E()
+{
+    cout<<"E started\n";
+    H();
+    cout<<"E completed\n";
+}
+
+void F()
+{
+    cout<<"F started\n";
+    G();
+    cout<<"F completed\n";
+}
+
+void D()
+{
+    cout<<"D started\n";
+    E();
+    cout<<"D completed\n";
+}
+
+void C()
+{
+    cout<<"C started\n";
+    D();
+    cout<<"C completed\n";
+}
+
+void B()
+{
+    cout<<"B started\n";
+    F();
+    cout<<"B completed\n";
+}
+
+void A()
+{
+    cout<<"A started\n";
+    B();
+    C();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+==================================================
+9.
+#include<bits/stdc++.h>
+using namespace std;
+
+void D()
+{
+    cout<<"D started\n";
+    cout<<"D completed\n";
+}
+void C()
+{
+    cout<<"C started\n";
+    D();
+    cout<<"C completed\n";
+}
+
+void B()
+{
+    cout<<"B started\n";
+    D();
+    cout<<"B completed\n";
+}
+
+void A()
+{
+    cout<<"A started\n";
+    B();
+    C();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+======================================================
+10.
+#include<bits/stdc++.h>
+using namespace std;
+void F()
+{
+    cout<<"F started\n";
+    cout<<"F completed\n";
+}
+void E()
+{
+    cout<<"E started\n";
+    F();
+    cout<<"E completed\n";
+}
+void D()
+{
+    cout<<"D started\n";
+    F();
+    cout<<"D completed\n";
+}
+void C()
+{
+    cout<<"C started\n";
+    E();
+    cout<<"C completed\n";
+}
+
+void B()
+{
+    cout<<"B started\n";
+    D();
+    cout<<"B completed\n";
+}
+
+void A()
+{
+    cout<<"A started\n";
+    B();
+    C();
+    cout<<"A completed\n";
+}
+
+int main()
+{
+    A();
+    return 0;
+}
+
+
