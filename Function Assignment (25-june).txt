@@ -1,0 +1,2454 @@
+1. User se 3 input lena hai, inka sum nikalna hai. Agar sum even hota hai to ek function call karna hai, jisme 4 input lena hai aur unka maximum value return karna hai. 
+Agar returned maximum > 20 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo palindrome hai ya nahi.
+
+#include <bits/stdc++.h>
+using namespace std;
+bool isPalindrome(int facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0)
+    {
+        rem =facto%10;
+        sum=sum*10+rem;
+        facto=facto/10;   
+    }
+    if(newSum==sum){
+	    return true;
+    } 
+    else 
+    	return false;
+}
+long long factorial(long long maxi){
+    int fact=1;
+    for(int i=1;i<=maxi;i++){
+        fact*=i;
+    }
+    return fact;
+}
+long maximum(int a,int b,int c,int d)
+{
+    int max=a;
+    if(max<b){
+        max=b;
+    }
+    if(max<c){
+        max=c;
+    }
+    if(max<d){
+        max=d;
+    }
+    return max;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3 : \n";
+    cin>>num1>>num2>>num3;
+    int sum=num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum%2==0){
+        int a,b,c,d;
+        cout<<"The value of sum is even so enter the value of a,b,c,d :\n";
+        cin>>a>>b>>c>>d;
+        long long int maxi=  maximum(a,b,c,d);
+        cout<<"The maximum number is  : "<< maxi<<"\n";
+        if(maxi>20){
+            cout<<"The maximum is greater than 20 so calculating the factorial of this number.\n";
+            long facto=factorial(maxi);
+            cout<<"The value of factorial is : "<<facto<<"\n";
+            if(isPalindrome(facto)){
+                cout<<"The favtorial value is a palindrome number.\n";
+            }
+            else {
+                cout<<"The favtorial value is not a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The maximum is less than 20 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+2. User se 5 input lena hai, inka average nikalna hai. Agar average prime number hai to ek function call karna hai, jisme 3 input lena hai aur unka product return karna hai. 
+Agar returned product Armstrong number hai to ek aur function call karke uska reverse nikalna hai aur check karna hai wo number palindrome hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(int product)
+{
+    int rem,sum=0;
+    int newSum=product;
+    while(product>0)
+    {
+        rem =product%10;
+        sum=sum*10+rem;
+        product=product/10;   
+    }
+    if(newSum==sum){
+	    return true;
+    } 
+    else 
+    	return false;
+}
+
+long int reverse(long int product)
+{
+    int rem,sum=0;
+    while(product>0){
+        rem=product%10;
+        sum=sum*10+rem;
+        product=product/10;
+    }
+    return sum;
+}
+bool isArmstrong(int product)
+{
+    int rem,sum=0;
+    int newSum=product;
+    while(product>0){
+        rem=product%10;
+        sum = sum+rem*rem*rem;
+        product=product/10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+bool isPrime(int avrg)
+{
+    if(avrg==0 ||avrg==1){
+        return false;
+    }
+    for(int i=2;i<avrg/2;i++){
+        if(avrg%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5 : \n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    float avrg=(num1+num2+num3+num4+num5)/5.0;
+    cout<<"The Average of these number is : "<<avrg<<"\n";
+    int prime=isPrime(avrg);
+    if(prime){
+        int a,b,c;
+        cout<<"The average is a prime number so enter the value of a,b,c : \n";
+        cin>>a>>b>>c;
+        int product=a*b*c;
+        cout<<"The product of a,b,c is : "<<product<<"\n";
+        int aS= isArmstrong(product);
+        if(aS){
+            cout<<"This is a Armstrong Number so reverse of this number is : "<<reverse(product)<<"\n";
+            if(isPalindrome(product)){
+                cout<<"The reverse of this number is a Palindrome number.\n";
+            }
+            else{
+                cout<<"The reverse of this nunmber is not a palindrome number.\n ";
+            }
+        }
+        else{
+            cout<<"This is not a Armstrong Number\n";
+        }
+    }
+    else{
+        cout<<"The average is not a Prime Number.";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+3. User se 2 input lena hai, inka difference nikalna hai. Agar difference > 10 hai to ek function call karna hai, jisme 4 input lena hai aur unka sum return karna hai. 
+Agar returned sum even hai to ek aur function call karke uska cube nikalna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+int cube(int sum){
+    return sum*sum*sum;
+}
+int summation(int a,int b,int c,int d){
+    return a+b+c+d;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2 :\n";
+    cin>>num1>>num2;
+    int sub=num1-num2;
+    cout<<"The difference of num1 and num2 is : "<<sub<<"\n";
+    if(sub>10){
+        int a,b,c,d;
+        cout<<"The difference is greater 10 so enter the value of a,b,c,d :\n";
+        cin>>a>>b>>c>>d;
+        int sum=summation(a,b,c,d);
+        cout<<"the value of sum is : "<<sum<<"\n";
+        if(sum%2==0){
+            cout<<"The value of sum is even so the cube of this value is : "<<cube(sum)<<"\n";
+        }
+        else{
+            cout<<"The value of sum is odd\n";
+        }
+    }
+    else{
+        cout<<"The value of difference is less than 10 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+4. User se 4 input lena hai, inka product nikalna hai. Agar product < 100 hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of squares return karna hai. 
+Agar returned sum of squares odd hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+        rem =facto%10;
+        sum=sum+rem*rem*rem;
+        facto=facto/10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long long factorial(long long square)
+{
+    int fact=1;
+    for(int i=1;i<=square;i++){
+        fact*=i;
+    }
+    return fact;
+}
+long int sumofSquare(int a,int b,int c)
+{
+    int result=(a*a)+(b*b)+(c*c);
+    return result;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4 :\n";
+    cin>>num1>>num2>>num3>>num4;
+    int product=num1*num2*num3*num4;
+    cout<<"The value of product is : "<<product<<"\n";
+    if(product<100){
+        int a,b,c;
+        cout<<"The value of product is less than 100 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long int square=sumofSquare(a,b,c);
+        cout<<"The value of sum of square of a,b,c is : "<<square<<"\n";
+        if(square%2!=0){
+            long long int facto=factorial(square);
+            cout<<"The value of square is odd so the factorial value of square is : "<<facto<<"\n";
+            if(isArmstrong(facto)){
+                cout<<"The factorial value of square is a Armstrong number.\n";
+            }
+            else{
+                cout<<"The factorial value of square isn't a Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of square is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is greater than 100 so no action will be performed for next steps.";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+5. User se 3 input lena hai, inka sum nikalna hai. Agar sum odd hota hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai. 
+Agar returned difference negative hai to ek aur function call karke uska absolute value nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(int sub)
+{
+    if(sub==0 || sub==1){
+        return false;
+    }
+    for(int i=2;i<=sub/2;i++){
+        if(sub%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int differnce(int a,int b)
+{
+    return a-b;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3 :\n";
+    cin>>num1>>num2>>num3;
+    int sum =  num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum%2!=0){
+        int a,b;
+        cout<<"The value of sum is odd so enter the value of a,b : \n";
+        cin>>a>>b;
+        int sub=differnce(a,b);
+        cout<<"The difference of a and b is : "<<sub<<"\n";
+        if(sub<0){
+            cout<<"The value of difference is Negative so check that the difference is prime number or not.\n";
+            sub =abs(sub);
+            if(isPrime(sub)){
+                cout<<"The Difference of a and b is a prime number.\n";
+            }
+            else{
+                cout<<"The difference of a and b is not a Prime number.\n";
+            }
+        }
+        else{
+            cout<<"The value of difference is Positive so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is even so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+6. User se 2 input lena hai, inka product nikalna hai. Agar product > 200 hai to ek function call karna hai, jisme product aur ek user input ko add karna hai aur result ko return karna hai. 
+Agar returned value Armstrong number hai to ek aur function call karke us value ko cube karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long int sum)
+{
+    int rem,summ=0;
+    int newSum=sum;
+    while(sum>0){
+        rem=sum%10;
+        summ=summ+rem*rem*rem;
+        sum/=10;
+    }
+    if(newSum==summ){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long int summation(long int product,long int addNum)
+{
+    return product+addNum;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2 :\n";
+    cin>>num1>>num2;
+    int product =num1*num2;
+    cout<<"The product of num1 and num2 is : "<<product<<"\n";
+    if(product>200){
+        int addNum;
+        cout<<"The value of product is greater than 200 so enter the value of new Number :\n";
+        cin>>addNum;
+        long int sum=summation(product,addNum);
+        cout<<"The result is : "<<sum<<"\n";
+        if(isArmstrong(sum)){
+            cout<<"The value of sum is an Armstrong number. so the cube is : "<<sum*sum*sum<<"\n";
+        }
+        else{
+            cout<<"The value of sum is not an Armstrong Number.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is less than 200 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+7. User se 4 input lena hai, inka sum nikalna hai. Agar sum > 50 hota hai to ek function call karna hai, jisme 2 input lena hai aur unka sum return karna hai. 
+Agar returned sum prime number hai to ek aur function call karke uska square nikalna hai aur check karna hai wo number Armstrong hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long newSum)
+{
+    int rem,sum=0;
+    int value=newSum;
+    while(newSum>0){
+        rem =newSum%10;
+        sum=sum+rem*rem*rem;
+        newSum=newSum/10;
+    }
+    if(value==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+int square(int newSum)
+{
+    return newSum*newSum;
+}
+bool isPrime(int newSum)
+{
+    if(newSum==0 || newSum==1){
+        return false;
+    }
+    for(int i=2;i<=newSum/2;i++){
+        if(newSum%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+long summation(int a,int b)
+{
+    return a+b;
+}
+
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4 :\n";
+    cin>>num1>>num2>>num3>>num4;
+    int sum =num1+num2+num3+num4;
+    cout<<"Sum of these numbers is : "<<sum<<"\n";
+    if(sum>50){
+        int a,b;
+        cout<<"The value of sum is greater than 50 so enter tha value of a,b :\n";
+        cin>>a>>b;
+        int newSum=summation(a,b);
+        cout<<"The value of Sum is : "<<newSum<<"\n";
+        int prime=isPrime(newSum);
+        if(prime){
+            cout<<"The value of sum is a prime number so square of sum is : "<<square(newSum)<<"\n";
+            int as=isArmstrong(newSum);
+            if(as){
+                cout<<"The square of sum is an Armstrong Number.\n";
+            }
+            else{
+                cout<<"The square of sum is not an Armstrong Number.\n";
+            }
+        }
+        else{
+            cout<<"The value of sum is not a prime number.\n";
+        }
+    }
+    else{
+        cout<<"Sum of these is less than 50 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+8. User se 3 input lena hai, inka product nikalna hai. Agar product even hota hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of cubes return karna hai. 
+Agar returned sum of cubes odd hai to ek aur function call karke uska reverse nikalna hai aur check karna hai wo palindrome hai ya nahi.
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(int reverseNum)
+{
+    int rem,sum=0;
+    int newSum=reverseNum;
+    while(reverseNum>0)
+    {
+        rem =reverseNum%10;
+        sum=sum*10+rem;
+        reverseNum=reverseNum/10;   
+    }
+    if(newSum==sum){
+	    return true;
+    } 
+    else 
+    	return false;
+}
+
+long int reverse(long int cube)
+{
+    int rem,sum=0;
+    while(cube>0)
+    {
+        rem =cube%10;
+        sum=sum*10+rem;
+        cube/=10;
+    }
+    return sum;
+}
+long int sumofCubes(int a,int b,int c)
+{
+    return (a*a*a)+(b*b*b)+(c*c*c);
+}
+
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3 :\n";
+    cin>>num1>>num2>>num3;
+    int product= num1*num2*num3;
+    cout<<"The value of Product is : "<<product<<"\n";
+    if(product%2==0){
+        int a,b,c;
+        cout<<"The value of product is even so Enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        int cube=sumofCubes(a,b,c);
+        cout<<"The value of sum of cubes is : "<<cube<<"\n";
+        if(cube%2!=0){
+            int reverseNum=reverse(cube);
+            cout<<"The Reverse of sum of cubes is : "<<reverseNum<<"\n";
+            if(isPalindrome(reverseNum)){
+                cout<<"The reverse of sum of cubes is a palindrome number.\n";
+            }
+            else{
+                cout<<"The reverse of sum of cubes isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of sum of cubes is Even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+9. User se 5 input lena hai, inka sum nikalna hai. Agar sum odd hota hai to ek function call karna hai, jisme 4 input lena hai aur unka maximum value return karna hai. 
+Agar returned maximum > 30 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long int maxi)
+{
+    int rem,sum=0;
+    int newSum=maxi;
+    while(maxi>0){
+        rem=maxi%10;
+        sum=sum+rem*rem*rem;
+        maxi/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long long int factorial(long long int maxi)
+{
+    int fact=1;
+    for(int i =1;i<=maxi;i++){
+        fact*=i;
+    }
+    return fact;
+}
+int maximum(int a,int b,int c,int d)
+{
+    int max =a;
+    if(max<b){
+        max=b;
+    }
+    if(max<c){
+        max=c;
+    }
+    if(max<d){
+        max=d;
+    }
+    return max;
+}
+
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5 :\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    int sum = num1+num2+num3+num4+num5;
+    cout<<"The sum of these number is : "<<sum<<"\n";
+    if(sum%2!=0){
+        int a,b,c,d;
+        cout<<"The value of sum is odd so Enter the value of a,b,c,d :\n";
+        cin>>a>>b>>c>>d;
+        int maxi=maximum(a,b,c,d);
+        cout<<"The maximum number is : "<<maxi<<"\n";
+        if(maxi>30){
+            long long facto=factorial(maxi);
+            cout<<"The maximum number is greater than 30 so the factorial of this number is : "<<facto<<"\n";
+            if(isArmstrong(maxi)){
+                cout<<"The factorial of this number is an Armstrong Number.\n";
+            }
+            else{
+                cout<<"The factorial of this number isn't an Armstrong Number.\n";
+            }
+        }
+        else{
+            cout<<"The maximum number is less than 30 so no action will be performed for next steps\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is Even so no action will be performed for next steps.";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+10. User se 2 input lena hai, inka difference nikalna hai. Agar difference < 20 hai to ek function call karna hai, jisme 2 input lena hai aur unka product return karna hai. 
+Agar returned product even hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long long int square(long long int multi)
+{
+    return multi*multi;
+}
+long product(long a,long b)
+{
+    return a*b;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2 : \n";
+    cin>>num1>>num2;
+    int sub= num1-num2;
+    cout<<"The difference of num1 and num2 is : "<<sub<<"\n";
+    if(sub<20){
+        int a,b;
+        cout<<"The value of difference is less than 20 so enter the value of a and b :\n";
+        cin>>a>>b;
+        long multi=product(a,b);
+        cout<<"The Product of a and b is : "<<multi<<"\n";
+        if(multi%2==0){
+            cout<<"The value of product is even so the square of the product is : "<<square(multi)<<"\n";
+        }
+        else{
+            cout<<"The value of product is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of difference is greater than 20 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+11. User se 4 input lena hai, inka sum nikalna hai. Agar sum > 80 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka average return karna hai. 
+Agar returned average < 40 hai to ek aur function call karke factorial nikalna hai aur check karna hai wo number Armstrong hai ya nahi.
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+        rem=facto%10;
+        sum=sum+rem*rem*rem;
+        facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long long factorial(long long  newAvg)
+{
+    int fact=1;
+    for(int i=1;i<=newAvg;i++){
+        fact*=i;
+    }
+    return fact;
+}
+float average(long int a,long int b,long int c)
+{
+    return (a+b+c)/3.0;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4 : \n";
+    cin>>num1>>num2>>num3>>num4;
+    int sum =num1+num2+num3+num4;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>80){
+        int  a,b,c;
+        cout<<"The value of sum is greater than 80 so enter the value of a,b,c:\n";
+        cin>>a>>b>>c;
+        long double avg=average(a,b,c);
+        cout<<"The value of average is "<<avg<<"\n";
+        if(avg<40){
+            int newAvg=avg;
+            long long facto=factorial(newAvg);
+            cout<<"The factorial is :"<<facto<<"\n";
+            if(isArmstrong(facto)){
+                cout<<"This is an Armstrong number\n";
+            }
+            else{
+                cout<<"This is not an Armstrong number\n";
+            }   
+        }
+        else{
+            cout<<"The value of average is greater than 40 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is less than 80 so no actio will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+12. User se 3 input lena hai, inka product nikalna hai. Agar product > 150 hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai. 
+Agar returned difference odd hai to ek aur function call karke us value ko cube karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long cube(long sub)
+{
+    return sub*sub*sub;
+}
+long difference(long a,long b)
+{
+    return a-b;
+}
+
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long product=num1*num2*num3;
+    cout<<"The Product of these Number is : "<<product<<"\n";
+    if(product>150){
+        int a,b;
+        cout<<"The value of Product is greater than 150 so enter the value of a,b \n";
+        cin>>a>>b;
+        long sub=difference(a,b);
+        cout<<"The value of Difference of a and b is : "<<sub<<"\n";
+        if(sub%2!=0){
+            long cubeofSub=cube(sub);
+            cout<<"The Return difference is odd than the cube of difference is : "<<cubeofSub<<"\n";
+        }
+        else{
+            cout<<"The return difference is even so no actio will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of Product is less than 150 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+13. User se 4 input lena hai, inka sum nikalna hai. Agar sum > 60 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of squares return karna hai. 
+Agar returned sum of squares even hai to ek aur function call karke us value ko reverse karna hai aur check karna hai wo palindrome hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long revNum)
+{
+    int rem,sum=0;
+    int newSum=revNum;
+    while (revNum>0)
+    {
+        rem=revNum%10;
+        sum=sum*10+rem;
+        revNum/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+long reverse(long square)
+{
+    int rem,sum=0;
+    while(square>0){
+        rem=square%10;
+        sum=sum*10+rem;
+        square/=10;
+    }
+    return sum;
+}
+long sumofSquare(long a, long b,long c)
+{
+    return (a*a)+(b*b)+(c*c);
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long sum = num1+num2+num3+num4;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>60){
+        int a,b,c;
+        cout<<"The value of sum is greater thean 60 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long square=sumofSquare(a,b,c);
+        cout<<"The value of sum of square is : "<<square<<"\n";
+        if(square%2==0){
+            long revNum=reverse(square);
+            cout<<"The reverse value of sum of square is : "<<revNum<<"\n";
+            if(isPalindrome(revNum)){
+                cout<<"The reverse value is a palindrome number.\n";
+            }
+            else{
+                cout<<"The reverse value isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of sum of square is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is less than 60 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+14. User se 3 input lena hai, inka average nikalna hai. Agar average prime number hai to ek function call karna hai, jisme 4 input lena hai aur unka product return karna hai. 
+Agar returned product > 200 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+        rem=facto%10;
+        sum=sum+rem*rem*rem;
+        facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+    return false;
+    }
+}
+long long factorial(long long multi)
+{
+    int fact=1;
+    for(int i =1; i<=multi; i++){
+        fact*=i;
+    }
+    return fact;
+}
+long product(long a,long b,long c,long d)
+{
+    return a*b*c*d;
+}
+bool isPrime(long avg){
+      if(avg==0 || avg==1){
+        return false;
+      }
+      for(int i =2;i<=avg/2;i++){
+        if(avg%i==0){
+            return false;
+        }
+      }
+      return true;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long double avg= (num1+num2+num3)/3.0;
+    cout<<"The value of average is  : "<<avg<<"\n";
+    if(isPrime(avg)){
+        int a,b,c,d;
+        cout<<"The value of Average is a Prime number so enter the value of a,b,c,d :\n";
+        cin>>a>>b>>c>>d;
+        long multi=product(a,b,c,d);
+        cout<<"The value of Product of a,b,c,d is : "<<multi<<"\n";
+        if(multi>200){
+            long long facto=factorial(multi);
+            cout<<"The value of product is greater than 200 so The factorial value of this number is : "<<facto<<"\n";
+            if(isArmstrong(multi)){
+                cout<<"The factorial  of this number is an Armstrong number\n";
+            }
+            else{
+                cout<<"The factorial of this number isn't an Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is less than 200 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of average is not a Prime number so action will be performed for next steps\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+15. User se 5 input lena hai, inka product nikalna hai. Agar product even hota hai to ek function call karna hai, jisme 2 input lena hai aur unka sum return karna hai. 
+Agar returned sum odd hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long square (long sum)
+{
+    return sum*sum;
+}
+long summmation(long a,long b)
+{
+    return a+b;
+}
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    long product=num1*num2*num3*num4*num5;
+    cout<<"The value of Product is : "<<product<<"\n";
+    if(product%2==0){
+        int a,b;
+        cout<<"The value of product is even so enter the value of a and b :\n";
+        cin>>a>>b;
+        long sum=summmation(a,b);
+        cout<<"The value of sum is : "<<sum<<"\n";
+        if(sum%2!=0){
+            cout<<"The value of sum is odd so the square of sum is : "<<square(sum)<<"\n";
+        }
+        else{
+            cout<<"The value of sum is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of Product is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+16. User se 2 input lena hai, inka sum nikalna hai. Agar sum > 70 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka difference return karna hai. 
+Agar returned difference < 20 hai to ek aur function call karke uska cube nikalna hai aur check karna hai wo palindrome hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long cube)
+{
+    int rem,sum=0;
+    int newSum=cube;
+    while (cube>0)
+    {
+        rem=cube%10;
+        sum=sum*10+rem;
+        cube/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+long long cubeofDrifference(long long sub)
+{
+    return sub*sub*sub;
+}
+long difference(long a,long b,long c)
+{
+    return a-b-c;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long sum=num1+num2;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>70){
+        int a,b,c;
+        cout<<"The value of sum is greater than 70 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long sub=difference(a,b,c);
+        cout<<"The difference of a,b and c is : "<<sub<<"\n";
+        if(sub<20){
+            long long cube=cubeofDrifference(sub);
+            cout<<"The value of difference is less than 20 so the value of cube is : "<<cube<<"\n";
+            if(isPalindrome(cube)){
+                cout<<"The value of cube is a Palindrome number.\n";
+            }
+            else{
+                cout<<"The value of cube isn't a Palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of difference is greater than 20 so no action will be performmed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is less than 70 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+17. User se 3 input lena hai, inka product nikalna hai. Agar product odd hota hai to ek function call karna hai, jisme 4 input lena hai aur unka maximum value return karna hai. 
+Agar returned maximum < 50 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0)
+    {
+        rem=facto%10;
+        sum=sum=rem*rem*rem;
+        facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+long long factorial(long long max)
+{
+    int fact=1;
+    for(int i=1; i<=max; i++)
+    {
+        fact*=i;
+    }
+    return fact;
+}
+
+long maximum(long a,long b,long c,long d)
+{
+    int maxi=a;
+    if(maxi<b)
+    {
+        maxi=b;
+    }
+    if(maxi<c)
+    {
+        maxi=c;
+    }
+    if(maxi<d)
+    {
+        maxi=d;
+    }
+    return maxi;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long product=num1*num2*num3;
+    cout<<"The value of product is : "<<product<<"\n";
+    if(product%2!=0){
+        int a,b,c,d;
+        cout<<"The value of product is odd so Enter the value of a,b,c,d\n";
+        cin>>a>>b>>c>>d;
+        long max=maximum(a,b,c,d);
+        cout<<"The value of maximum number is : "<<max<<"\n";
+        if(max<50){
+            long long facto=factorial(max);
+            cout<<"The value of maximum number is less than 50 so ; The value of Factorial is : "<<facto<<"\n";
+            if(isArmstrong(facto)){
+                cout<<"The value of factorial is an Armstrong Number.\n";
+            }
+            else{
+                cout<<"The value of factorial isn't an Armstrong Number.\n";
+            }
+        }
+        else{
+            cout<<"The value of maximum number is greater than 50 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is even so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+18. User se 4 input lena hai, inka sum nikalna hai. Agar sum even hota hai to ek function call karna hai, jisme 2 input lena hai aur unka product return karna hai. 
+Agar returned product > 100 hai to ek aur function call karke uska reverse nikalna hai aur check karna hai wo palindrome hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long multi)
+{
+    int rem,sum=0;
+    int newSum=multi;
+    while (multi>0)
+    {
+        rem=multi%10;
+        sum=sum*10+rem;
+        multi/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+long reverse(long multi)
+{
+    int rem,sum=0;
+    while(multi>0){
+        rem=multi%10;
+        sum=sum*10+rem;
+        multi/=10;
+    }
+    return sum;
+}
+long product(long a,long b)
+{
+    return a*b;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long sum= num1+num2+num3+num4;
+    cout<<"The sum of these numbers is : "<<sum<<"\n";
+    if(sum%2==0){
+        int a,b;
+        cout<<"The value of sum is even so Enter the value of a,b\n";
+        cin>>a>>b;
+        long multi =product(a,b);
+        cout<<"The value of product is : "<<multi<<"\n";
+        if(multi>100){
+            cout<<"The value of product is greater than 100 so check the reverse of this number.\n";
+            long revNum=reverse(multi);
+            cout<<"The reverse value of this number is : "<<revNum<<"\n";
+            if(isPalindrome(multi)){
+                cout<<"The reverse value is a Palindrome Number.\n";
+            }
+            else{
+                cout<<"The reverse number isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is less than 100 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is Odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+19. User se 3 input lena hai, inka average nikalna hai. Agar average > 30 hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of cubes return karna hai. 
+Agar returned sum of cubes odd hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long long squareofSum(long long cubes){
+    return cubes*cubes;
+}
+long long sumofCubes(long a,long b,long c)
+{
+    return (a*a*a)+(b*b*b)+(c*c*c);
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    double average=(num1+num2+num3)/3.0;
+    cout<<"The average is : "<<average<<"\n";
+    if(average>30){
+        long a,b,c;
+        cout<<"The average is greater than 30 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long cubes=sumofCubes(a,b,c);
+        cout<<"The sum of cubes of a,b,c is : "<<cubes<<"\n";
+        if(cubes%2!=0){
+            long long square=squareofSum(cubes);
+            cout<<"The value of square is : "<<square<<"\n";
+        }
+        else{
+            cout<<"The value of cube is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of less than 30 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+20. User se 5 input lena hai, inka sum nikalna hai. Agar sum prime number hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai. 
+Agar returned difference negative hai to ek aur function call karke uska absolute value nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long sub)
+{
+    int rem,sum=0;
+    int newSum=sub;
+    while(sub>0){
+    rem=sub%10;
+    sum=sum+rem*rem*rem;
+    sub/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long difference(long a,long b)
+{
+    return  a-b;
+}
+bool  isPrime(long sum){
+    if(sum==0 || sum==1){
+        return false;
+    }
+    for(int i=2; i<sum/2; i++){
+        if(sum%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    long sum=num1+num2+num3+num4+num5;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(isPrime(sum)){
+        long a,b;
+        cout<<"The value of sum is a prime number so enter the value of a,b :\n";
+        cin>>a>>b;
+        long sub=difference(a,b);
+        cout<<"The value of difference of a and b is : "<<sub<<"\n";
+        if(sub<0){
+            sub=abs(sub);
+            cout<<"absolute value of sub : "<<sub<<"\n";
+            cout<<"The value of difference is an Armstrong Number."<<isArmstrong(sub)<<"\n";
+        }
+        else{
+            cout<<"The value of difference is not an Armstrong number.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum isn't a prime number so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+21. User se 2 input lena hai, inka product nikalna hai. Agar product < 100 hai to ek function call karna hai, jisme 4 input lena hai aur unka sum return karna hai. 
+Agar returned sum even hai to ek aur function call karke us value ko cube karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long long cubeofSum(long sum){
+    return sum*sum*sum;
+}
+long summation(long a,long b,long c,long d)
+{
+    return a+b+c+d;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long product=num1*num2;
+    cout<<"The product is : "<<product<<"\n";
+    if(product<100){
+        long a,b,c,d;
+        cout<<"The product is less than 100 so enter the value of a,b,c,d :\n";
+        cin>>a>>b>>c>>d;
+        long sum=summation(a,b,c,d);
+        cout<<"The sum of a,b,c,d is : "<<sum<<"\n";
+        if(sum%2==0){
+            long cube=cubeofSum(sum);
+            cout<<"The value of cube is : "<<cube<<"\n";
+        }
+        else{
+            cout<<"The value of sum is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is greater than 100 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+22. User se 4 input lena hai, inka sum nikalna hai. Agar sum odd hota hai to ek function call karna hai, jisme 3 input lena hai aur unka product return karna hai. 
+Agar returned product > 80 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(long facto)
+{
+    if (facto == 0 || facto == 1) {
+      return false;
+    }
+    for (int i = 2; i <= facto / 2; i++) {
+      if (facto % i == 0) {
+        return false;
+      }
+    }
+    return true;
+}
+long long factorial(long multi)
+{
+    int fact=1;
+    for(int i =1; i<=fact; i++){
+        fact*=i;
+    }
+    return fact;
+}
+
+long product(long a,long b,long c)
+{
+    return a*b*c;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long sum=num1+num2+num3+num4;
+    cout<<"The sum is : "<<sum<<"\n";
+    if(sum%2!=0){
+        long a,b,c;
+        cout<<"The sum is odd so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long multi=product(a,b,c);
+        cout<<"The value of product is : "<<multi<<"\n";
+        if(multi>80){
+            long long facto=factorial(multi);
+            cout<<"the product is greater than 80 so,The factorial of this number is : "<<facto<<"\n";
+            if(isPrime(facto)){
+                cout<<"This is a Prime number.\n";
+            }
+            else{
+                cout<<"This is not a Prime number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is less than 80 so no action will be performed for next steps.\n";
+        }
+    }    
+    else{
+        cout<<"The sum is even so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+23. User se 3 input lena hai, inka difference nikalna hai. Agar difference even hota hai to ek function call karna hai, jisme 2 input lena hai aur unka sum of squares return karna hai. 
+Agar returned sum of squares odd hai to ek aur function call karke uska reverse nikalna hai aur check karna hai wo palindrome hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long revNum)
+{
+    int rem,sum=0;
+    int newSum=revNum;
+    while (revNum>0)
+    {
+        rem=revNum%10;
+        sum=sum*10+rem;
+        revNum/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+long reverse(long square)
+{
+    int rem,sum=0;
+    while(square>0){
+        rem=square%10;
+        sum=sum*10+rem;
+        square/=10;
+    }
+    return sum;
+}
+long sumofSquare(long a,long b)
+{
+    return (a*a) + (b*b);
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long sub= num1-num2-num3;
+    cout<<"The difference of these numbers is : "<<sub<<"\n";
+    if(sub%2==0){
+        int a,b;
+        cout<<"The value of difference is even so Enter the value of a,b\n";
+        cin>>a>>b;
+        long square=sumofSquare(a,b);
+        cout<<"The sum of square of a and b is : "<<square<<"\n";
+        if(square%2!=0){
+            long revNum=reverse(square);
+            cout<<"The value of sum of square is odd so the The reverse value of sum of square is : "<<revNum<<"\n";
+            if(isPalindrome(revNum)){
+                cout<<"The reverse value is a palindrome number.\n";
+            }
+            else{
+                cout<<"the reverse value isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of  sum of square is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of difference is odd so no action will be performed for next steps.\n";
+    }
+
+    return 0;
+}
+=================================================================================================================================================================================================================
+24. User se 2 input lena hai, inka sum nikalna hai. Agar sum > 90 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka average return karna hai. 
+Agar returned average < 30 hai to ek aur function call karke factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isArmstrong(long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+    rem=facto%10;
+    sum=sum+rem*rem*rem;
+    facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+long factorial(long avg)
+{
+    int fact=1;
+    for(int i=1; i<=avg; i++){
+        fact*=i;
+    }
+    return fact;
+}
+
+long double average(long a,long b,long c)
+{
+    return (a+b+c)/3.0;
+}
+
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long sum=num1+num2;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>90){
+        long a,b,c;
+        cout<<"The Value of sum is greater then 90 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long double avg=average(a,b,c);
+        cout<<"The average of a,b and c is : "<<avg<<"\n";
+        if(avg<30){
+            
+            long long facto=factorial(avg);
+            cout<<"The value of average is less than 30 so factorial of this number is : "<<facto<<"\n";
+            if(isArmstrong){
+                cout<<"The factorial number is an Armstrong number.\n";
+            }
+            else{
+                cout<<"The factorial number isn't an Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of average is greater than 30 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is less than 90 so no action will be performed for next steps.\n"; 
+    }
+
+    return 0;
+}
+=================================================================================================================================================================================================================
+25. User se 4 input lena hai, inka product nikalna hai. Agar product even hota hai to ek function call karna hai, jisme 5 input lena hai aur unka sum return karna hai. 
+Agar returned sum odd hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+long long squareofSum(long sum)
+{
+    return sum*sum;
+}
+
+long summation(long a,long b,long c,long d,long e)
+{
+    return a+b+c+d+e;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long product=num1*num2*num3*num4;
+    cout<<"The product is : "<<product<<"\n";
+    if(product%2==0){
+        long a,b,c,d,e;
+        cout<<"The product is even so enter the value of a,b,c,d and e :\n";
+        cin>>a>>b>>c>>d>>e;
+        long sum=summation(a,b,c,d,e);
+        cout<<"The value of sum is : "<<sum<<"\n";
+        if(sum%2!=0)
+        {
+            long square=squareofSum(sum);
+            cout<<"The square of sum is : "<<square<<"\n";
+        }
+        else{
+            cout<<"The value of sum is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The product is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+26. User se 3 input lena hai, inka sum nikalna hai. Agar sum < 40 hota hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai. 
+Agar returned difference odd hai to ek aur function call karke uska cube nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(long cube){
+    if(cube==0 || cube==1){
+        return false;
+    }
+    for(int i=2; i<cube/2; i++){
+        if(cube%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+long long cubes(long sub)
+{
+    return sub*sub*sub;
+}
+long difference(long a,long b){
+    return a-b;
+}
+
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long sum=num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum<40){
+        long a,b;
+        cout<<"The value of sum is less than 40 so enter the value of a and b :\n";
+        cin>>a>>b;
+        long sub=difference(a,b);
+        cout<<"The difference of a and b is : "<<sub<<"\n";
+        if(sub%2!=0){
+            long cube=cubes(sub);
+            cout<<"Difference is odd so, The value of cube is : "<<cube<<"\n";
+            if(isPrime(cube)){
+                cout<<"The cube of this numbver is a prime number.\n";
+            }
+            else{
+                cout<<"The cube of this number is not a Prime number.\n";
+            }
+        }
+        else{
+            cout<<"Difference is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is greater than 40 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+27. User se 2 input lena hai, inka product nikalna hai. Agar product > 50 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of cubes return karna hai. 
+Agar returned sum of cubes even hai to ek aur function call karke us value ko reverse karna hai aur check karna hai wo palindrome hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long revNum)
+{
+    int rem,sum=0;
+    int newSum=revNum;
+    while (revNum>0)
+    {
+        rem=revNum%10;
+        sum=sum*10+rem;
+        revNum/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+long reverse(long cubes)
+{
+    int rem,sum=0;
+    while(cubes>0){
+        rem=cubes%10;
+        sum=sum*10+rem;
+        cubes/=10;
+    }
+    return sum;
+}
+long sumofCubes(long a,long b, long c)
+{
+    return (a*a*a) + (b*b*b)+ (c*c*c);
+}
+
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long product = num1*num2;
+    cout<<"The product of these numbers is : "<<product<<"\n";
+    if(product>50){
+        int a,b,c;
+        cout<<"The value of Product is grreater than so Enter the value of a,b,c\n";
+        cin>>a>>b>>c;
+        long cubes= sumofCubes(a,b,c);
+        cout<<"The value of sum of cubes is : "<<cubes<<"\n";
+        if(cubes%2==0){
+            long revNum=reverse(cubes);
+            cout<<"The value of sum of cube is even so the The reverse value of sum of cube is : "<<revNum<<"\n"; 
+            if(isPalindrome(revNum)){
+                cout<<"The reverse of this number is a palindrome number.\n";
+            }
+            else{
+                cout<<"the reverse of this number isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of sum of cube is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is less than 50 so no action will be performed for next steps.\n";
+    }
+}
+=================================================================================================================================================================================================================
+28. User se 4 input lena hai, inka average nikalna hai. Agar average > 20 hai to ek function call karna hai, jisme 3 input lena hai aur unka product return karna hai. 
+Agar returned product < 60 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+    rem=facto%10;
+    sum=sum+rem*rem*rem;
+    facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+long long factorial(long long multi)
+{
+    int fact=1;
+    for(int i =1; i<=multi; i++){
+        fact*=i;
+    }
+    return fact;
+}
+long product(long a,long b,long c){
+    return a*b*c;
+}
+
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    double avrg = (num1+num2+num3+num4)/4.0;
+    cout<<"The value of average is : "<<avrg<<"\n";
+    if(avrg>20){
+        long a,b,c;
+        cout<<"The average is greater than 20 so enter the value of a,b and c :\n";
+        cin>>a>>b>>c;
+        long multi =product(a,b,c);
+        cout<<"The Product of a,b and c is : "<<multi<<"\n";
+        if(multi<60){
+            long long facto=factorial(multi);
+            cout<<"The factorial is : "<<facto<<"\n";
+            if(isArmstrong(facto)){
+                cout<<"The Factorial is an Armstrong Number.\n";
+            }
+            else{
+                cout<<"The Factorial isn't an Armstrong Number.\n";
+            }
+        }
+        else{
+            cout<<"The product is greater than 60 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of average is less than 20 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+29. User se 3 input lena hai, inka sum nikalna hai. Agar sum even hota hai to ek function call karna hai, jisme 4 input lena hai aur unka sum return karna hai. 
+Agar returned sum odd hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+long squareofSumm(long summ){
+    return summ*summ;
+}
+long summation(long a,long b,long c){
+    return a+b+c;
+}
+
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long sum=num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum%2==0){
+        long a,b,c,d;
+        cout<<"The value of sum is even so enter the value of a ,b and c :\n";
+        cin>>a>>b>>c;
+        long summ= summation(a,b,c);
+        cout<<"The sum of a ,b and c is : "<<summ<<"\n";
+        if(summ%2!=0){
+            long square=squareofSumm(summ);
+            cout<<"The value of square is : "<<square<<"\n";
+        }
+        else{
+            cout<<"The value of sm is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+30. User se 5 input lena hai, inka product nikalna hai. Agar product odd hota hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai.
+Agar returned difference even hai to ek aur function call karke uska cube nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool  isPrime(long cube){
+    if(cube==0 || cube==1){
+        return false;
+    }
+    for(int i=2; i<cube/2; i++){
+        if(cube%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+long cubes(long sub){
+    return sub*sub*sub;
+}
+long difference(long a,long b){
+    return a-b;
+}
+
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    long product= num1*num2*num3*num4*num5;
+    cout<<"The value of product is : "<<product<<"\n";
+    if(product%2!=0)
+    {
+        long a,b;
+        cout<<"The value of product is odd so enter the value of a and b :\n";
+        cin>>a>>b;
+        long sub=difference(a,b);
+        cout<<"The difference of a and b is : "<<sub<<"\n";
+        if(sub%2==0){
+            long cube=cubes(sub);
+            cout<<"The value of cube is : "<<cube<<"\n";
+            if(isPrime(cube)){
+                cout<<"The value cube is a prime number\n";
+            }
+            else{
+                cout<<"The value of cube is not a prime number\n";
+            }
+        }
+        else{
+            cout<<"The value of difference is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is even so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+31. User se 2 input lena hai, inka sum nikalna hai. Agar sum < 30 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka average return karna hai. 
+Agar returned average > 50 hai to ek aur function call karke factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isArmstrong(long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+    rem=facto%10;
+    sum=sum+rem*rem*rem;
+    facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+long factorial(long avg)
+{
+    int fact=1;
+    for(int i=1; i<=avg; i++){
+        fact*=i;
+    }
+    return fact;
+}
+
+long double average(long a,long b,long c)
+{
+    return (a+b+c)/3.0;
+}
+
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long sum=num1+num2;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum<30){
+        long a,b,c;
+        cout<<"The Value of sum is less then 30 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long double avg=average(a,b,c);
+        cout<<"The average of a,b and c is : "<<avg<<"\n";
+        if(avg>50){
+            long long facto=factorial(avg);
+            cout<<"The value of average is greater than 50 so factorial of this number is : "<<facto<<"\n";
+            if(isArmstrong){
+                cout<<"The factorial number is an Armstrong number.\n";
+            }
+            else{
+                cout<<"The factorial number isn't an Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of average is less than 50 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is greater than 30 so no action will be performed for next steps.\n"; 
+    }
+
+    return 0;
+}
+=================================================================================================================================================================================================================
+32. User se 4 input lena hai, inka product nikalna hai. Agar product even hota hai to ek function call karna hai, jisme 2 input lena hai aur unka sum return karna hai. 
+Agar returned sum odd hai to ek aur function call karke us value ko reverse karna hai aur check karna hai wo palindrome hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long revNum)
+{
+    int rem,sum=0;
+    int newSum=revNum;
+    while (revNum>0)
+    {
+        rem=revNum%10;
+        sum=sum*10+rem;
+        revNum/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+long reverse(long sum)
+{
+    int rem,newSum=0;
+    while(sum>0){
+        rem=sum%10;
+        newSum=newSum*10+rem;
+        sum/=10;
+    }
+    return newSum;
+}
+long summation(long a,long b)
+{
+    return  a + b;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long product=num1*num2*num3*num4;
+    cout<<"The value of product is : "<<product<<"\n";
+    if(product%2==0){
+        long a,b;
+        cout<<"The value of product is even so Enter the value of a,b\n";
+        cin>>a>>b;
+        long sum=summation(a,b);
+        cout<<"The sum of a and b is : "<<sum<<"\n";
+        if(sum%2!=0){
+            long revNum=reverse(sum);
+            cout<<"The value of sum is odd so The reverse of sum is : "<<revNum<<"\n";
+            if(isPalindrome(revNum)){
+                cout<<"The reverse value is palindrome number.\n";
+            }
+            else{
+                cout<<"The reverse value isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of sum is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is odd so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+33. User se 3 input lena hai, inka sum nikalna hai. Agar sum > 70 hota hai to ek function call karna hai, jisme 4 input lena hai aur unka product return karna hai. 
+Agar returned product < 50 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool  isPrime(long facto){
+    if(facto==0 || facto==1){
+        return false;
+    }
+    for(int i=2; i<facto/2; i++){
+        if(facto%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+long long factorial(long multi)
+{
+    int fact=1;
+    for (int i =1;i<=multi; i++){
+        fact*=i;
+    }
+    return fact;
+}
+long product(long a,long b,long c,long d)
+{
+    return a*b*c*d;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long sum= num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>70)
+    {
+        long a,b,c,d;
+        cout<<"The value of sum is greater than 70 so enter the value of a,b,c and d :\n";
+        cin>>a>>b>>c>>d;
+        long multi=product(a,b,c,d);
+        cout<<"The value of product is : "<<multi<<"\n";
+        if(multi<50)
+        {
+            long long facto= factorial(multi);
+            cout<<"The value of product is less than 50 so the factorial of this number is : "<<facto<<"\n";
+            if(isPrime(facto)){
+                cout<<"The factorial number is a prime number.\n";
+            }
+            else{
+                cout<<"The factorial number isn't a prime number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is greater than 50 so no action will be performed for next steps.\n";
+        }
+    }
+    else
+    {
+        cout<<"The value of sum is less than 70 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+34. User se 2 input lena hai, inka product nikalna hai. Agar product < 120 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka sum of squares return karna hai. 
+Agar returned sum of squares even hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long long squareOfsquare( long long square)
+{
+    return square*square;
+}
+sumofSquare(long a,long b,long c){
+    return (a*a)+(b*b)+(c*c);
+}
+
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long product= num1*num2;
+    cout<<"The value of product is : "<<product<<"\n";
+    if(product<120){
+        long a,b,c;
+        cout<<"The value of product is less than 120 so enter the value of a,b,c :\n";
+        cin>>a>>b>>c;
+        long square=sumofSquare(a,b,c);
+        cout<<"The value of sum of square is : "<<square<<"\n";
+        if(square%2==0){
+            long long _square=squareOfsquare(square);
+            cout<<"The square of sum of sqaure is : "<<_square<<"\n";
+        }
+        else{
+            cout<<"The value of sum of square is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of product is greater than 120 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+35. User se 5 input lena hai, inka sum nikalna hai. Agar sum odd hota hai to ek function call karna hai, jisme 2 input lena hai aur unka difference return karna hai. 
+Agar returned difference negative hai to ek aur function call karke uska absolute value nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isArmstrong(long sub)
+{
+    int rem,sum=0;
+    int newSum=sub;
+    while(sub>0){
+    rem=sub%10;
+    sum=sum+rem*rem*rem;
+    sub/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
+long difference(long a,long b)
+{
+    return a-b;
+}
+
+int main()
+{
+    int num1,num2,num3,num4,num5;
+    cout<<"Enter the value of num1,num2,num3,num4,num5\n";
+    cin>>num1>>num2>>num3>>num4>>num5;
+    long sum=num1+num2+num3+num4+num5;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum%2!=0){
+        long a,b;
+        cout<<"The value of sum is odd  so enter the value of a and b :\n";
+        cin>>a>>b;
+        long sub=difference(a,b);
+        cout<<"The difference of a and b is : "<<sub<<"\n";
+        if(sub<0){
+            sub=abs(sub);
+            if(isArmstrong(sub)){
+                cout<<"The value of diffrence is an Armstrong number.\n";
+            }
+            else{
+                cout<<"The value of difference is not an Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of difference is positive so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is even so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+36. User se 3 input lena hai, inka average nikalna hai. Agar average prime number hai to ek function call karna hai, jisme 4 input lena hai aur unka product return karna hai. 
+Agar returned product even hai to ek aur function call karke uska cube nikalna hai aur check karna hai wo prime number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+bool Prime(long cube)
+{
+    if(cube==0 || cube==1){
+        return false;
+    }
+    for(int i=2 ; i<=cube/2; i++){
+        if(cube%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+long long cubes(long long multi)
+{
+    return multi*multi*multi;
+}
+
+long product(long a,long b,long c,long d){
+    return a*b*c*d;
+}
+
+bool isPrime(long avrg)
+{
+    if(avrg==0 || avrg==1){
+        return false;
+    }
+    for(int i =2; i<=avrg/2; i++){
+        if(avrg%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long double avrg = (num1+num2+num3)/3.0;
+    cout<<"The value of average is : "<<avrg<<"\n";
+    int prime= isPrime(avrg);
+    if(prime){
+        long a,b,c,d;
+        cout<<"The value of Average is a Prime Number so  enter the value of a,b,c,d:\n";
+        cin>>a>>b>>c>>d;
+        long multi=product(a,b,c,d);
+        cout<<"The value of product of a,b,c,d is : "<<multi<<"\n";
+        if(multi%2==0){
+            long cube =cubes(multi);
+            cout<<"The value product is even so The cube of this number is : "<<cube<<"\n";
+            if(Prime(cube)){
+                cout<<"The cube of this number is a prime number.\n";
+            }
+            else{
+                cout<<"The cube of this number is not a prime number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of Average is not a prime number so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+37. User se 2 input lena hai, inka sum nikalna hai. Agar sum > 50 hota hai to ek function call karna hai, jisme 3 input lena hai aur unka difference return karna hai. 
+Agar returned difference < 10 hai to ek aur function call karke uska reverse nikalna hai aur check karna hai wo palindrome hai ya nahi.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(long revNum)
+{
+    int rem,sum=0;
+    int newSum=revNum;
+    while (revNum>0)
+    {
+        rem=revNum%10;
+        sum=sum*10+rem;
+        revNum/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+}
+
+long reverse(long sub)
+{
+    int rem,newSum=0;
+    while(sub>0){
+        rem=sub%10;
+        newSum=newSum*10+rem;
+        sub/=10;
+    }
+    return newSum;
+}
+long difference(long a,long b, long c)
+{
+    return  a-b-c;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long sum=num1+num2;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum>50){
+        long a,b,c;
+        cout<<"Enter the value of a,b,c\n";
+        cin>>a>>b>>c;
+        long sub=difference(a,b,c);
+        cout<<"The value of difference of a, b ,c is : "<<sub<<"\n";
+        if(sub<10){
+            sub=abs(sub);
+            long revNum=reverse(sub);
+            cout<<"The value of difference is less than 10 so the reverse value of difference is : "<<revNum<<"\n";
+            if(isPalindrome(revNum)){
+                cout<<"The value of reverse number is a palindrome number.\n";
+            }
+            else{
+                cout<<"The value of reverse number isn't a palindrome number.\n";
+            }
+        }
+        else{
+            cout<<"The value of difference is  greater than 10 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is less than 50 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+38. User se 4 input lena hai, inka product nikalna hai. Agar product even hota hai to ek function call karna hai, jisme 5 input lena hai aur unka sum return karna hai. 
+Agar returned sum odd hai to ek aur function call karke us value ko cube karna hai aur result return karna hai.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long cubes(long sum)
+{
+    return sum*sum*sum;
+}
+long summation(long a,long b,long c,long d, long e)
+{
+    return a+b+c+d+e;
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cout<<"Enter the value of num1,num2,num3,num4\n";
+    cin>>num1>>num2>>num3>>num4;
+    long product= num1*num2*num3*num4;
+    cout<<"The value of product of num1 and num2 : "<<product<<"\n";
+    if(product%2==0){
+        long a,b,c,d,e;
+        cout<<"The value of product is even so enter the value of a b c d and e:\n";
+        cin>>a>>b>>c>>d>>e;
+        long sum =summation(a,b,c,d,e);
+        cout<<"The value of sum is : "<<sum<<"\n";
+        if(sum%2!=0){
+            long long cube= cubes(sum);
+            cout<<"The value of sum is odd so the cube of this number is : "<<cube<<"\n";
+        }
+        else{
+            cout<<"The value of sum is even so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"the value of product is greater than 80 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+39. User se 3 input lena hai, inka sum nikalna hai. Agar sum < 100 hota hai to ek function call karna hai, jisme 2 input lena hai aur unka product return karna hai. 
+Agar returned product > 200 hai to ek aur function call karke uska factorial nikalna hai aur check karna hai wo Armstrong number hai ya nahi.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isArmstrong(long long facto)
+{
+    int rem,sum=0;
+    int newSum=facto;
+    while(facto>0){
+    rem=facto%10;
+    sum=sum+rem*rem*rem;
+    facto/=10;
+    }
+    if(newSum==sum){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+long long factorial(long multi)
+{
+    int fact=1;
+    for(int i=1; i<=multi; i++){
+        fact*=i;
+    }
+    return fact;
+}
+
+long product(long a,long b)
+{
+    return a*b;
+}
+
+int main()
+{
+    int num1,num2,num3;
+    cout<<"Enter the value of num1,num2,num3\n";
+    cin>>num1>>num2>>num3;
+    long sum=num1+num2+num3;
+    cout<<"The value of sum is : "<<sum<<"\n";
+    if(sum<100){
+        long a,b;
+        cout<<"The value of sum is less than 100 so enter the value of a and b :\n";
+        cin>>a>>b;
+        long multi=product(a,b);
+        cout<<"The product of a and b is : "<<multi<<"\n";   
+        if(multi>200){
+            long long facto=factorial(multi);
+            cout<<"The product of a and b is greater than 200 so the factorial of this number is : "<<facto<<"\n";
+            if(isArmstrong(facto)){
+                cout<<"The factorial number is an Armstrong number.\n";
+            }
+            else{
+                cout<<"The value of factorial is not an Armstrong number.\n";
+            }
+        }
+        else{
+            cout<<"The value of product is less than 200 so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"The value of sum is greater than 100 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================
+40. User se 2 input lena hai, inka product nikalna hai. Agar product < 80 hota hai to ek function call karna hai, jisme product aur ek user input ko add karna hai aur result ko return karna hai. 
+Agar returned value even hai to ek aur function call karke us value ko square karna hai aur result return karna hai.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long square(long sum)
+{
+    return sum*sum;
+}
+long summation(long product,long a)
+{
+    return product+a;
+}
+int main()
+{
+    int num1,num2;
+    cout<<"Enter the value of num1,num2\n";
+    cin>>num1>>num2;
+    long product= num1*num2;
+    cout<<"The value of product of num1 and num2 : "<<product<<"\n";
+    if(product<80){
+        long a;
+        cout<<"The value of product is less than 80 so enter the value of a :\n";
+        cin>>a;
+        long sum =summation(product,a);
+        cout<<"The value of sum is : "<<sum<<"\n";
+        if(sum%2==0){
+            cout<<"The square value of this number is : "<<square(sum)<<"\n";
+        }
+        else{
+            cout<<"The value of sum is odd so no action will be performed for next steps.\n";
+        }
+    }
+    else{
+        cout<<"the value of product is greater than 80 so no action will be performed for next steps.\n";
+    }
+    return 0;
+}
+=================================================================================================================================================================================================================

@@ -1,0 +1,272 @@
+1.Write a C++ program that accepts the weight and number of two purchased items (floating point values) and calculates the average value of the items.Function: void averageWeight();
+Inputs:Weight of Item1: 15
+Number of Item1: 5
+Weight of Item2: 25
+Number of Item2: 4
+Expected Output: Average Value = 19.444444
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void avrg(int num1=5,int num2=4,float weight1=15,float weight2=25)
+{
+    float totalweight = 5*15+4*25;
+    int totalofNumber = 5+4;
+    float avrg = totalweight/totalofNumber;
+    cout<<"The average value is : "<<avrg<<"\n";
+}
+int main(){
+    int num1=5;
+    int num2=4;
+    float weight1=15;
+    float weight2=25;
+    avrg(5,4,15,25);
+    return 0;
+}
+==========================================================================================================================================================
+2.Write a C++ program that accepts an employee's ID, total worked hours in a month, and the amount they received per hour. Print the employee's ID and salary (with two decimal places) for the month.Function: void employeeSalary();
+Inputs:Employee ID: 0342
+Working hours: 8
+Salary amount per hour: 15000
+Expected Output:Employee ID = 0342
+Salary = U$ 120000.00
+==========================================================================================================================================================
+3.Write a C++ program to calculate a bike's average consumption from the given total distance (integer value) traveled (in km) and spent fuel (in liters, float number – 2 decimal points).Function: void bikeConsumption();
+Inputs:Total distance: 350 km
+Total fuel spent: 5 liters
+Expected Output: Average consumption (km/lt) = 70.000
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void avrg(int km = 350, float in = 5)
+{
+    float avrg = km/in;
+    cout<<"Average consumption (km/lt) : "<<avrg<<"\n";
+}
+int main(){
+    int km = 350;
+    float in = 5;
+    avrg(350,5);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program to convert a specified number of days into years, weeks, and days.Function: void convertDaysToYearsWeeksDays();
+Inputs:Number of days: 1329
+Expected Output:Years: 3
+Weeks: 33
+Days: 3
+
+
+==========================================================================================================================================================
+Write a C++ program to convert a given integer (in seconds) to hours, minutes, and seconds.Function: void convertSecondsToHMS();
+Inputs:Total seconds: 25300
+Expected Output:H:M:S = 7:1:40
+
+#include<bits/stdc++.h>
+using namespace std;
+void _time(int totalsecond=25300){
+    int hours = totalsecond/3600;
+    totalsecond = totalsecond%3600;
+    int minutes = totalsecond/60;
+    totalsecond= totalsecond%60;
+    int second = totalsecond;
+    cout<<"H:M:S = "<< hours<<":"<<minutes<<":"<<second;
+}
+int main(){
+    int totalsecond=25300;
+    _time(totalsecond);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program to convert a given integer (in days) to years, months, and days, assuming all months have 30 days and all years have 365 days.Function: void convertDaysToYearsMonthsDays();
+Inputs:Number of days: 2535
+Expected Output:6 Year(s)
+11 Month(s)
+15 Day(s)
+
+#include<bits/stdc++.h>
+using namespace std;
+void countofDays(int totaldays = 2535){
+    int year = totaldays/365;
+    totaldays = totaldays%365;
+    int month = totaldays/30;
+    totaldays  = totaldays%30;
+    int day   = totaldays;
+    cout<<year<<" year "<<month<<" months "<<day<<" days"<<"\n";
+}
+int main(){
+    int totaldays = 2535;
+    countofDays(totaldays);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program to find all numbers which are divisible by 7 with a remainder of 2 or 3 between two given integers.Function: void findNumbersDivisibleBy7();
+Inputs:First integer: 25
+Second integer: 45
+Expected Output:30
+31
+37
+38
+44
+==========================================================================================================================================================
+Write a C++ program that accepts three integers and finds the maximum of the three.Function: void findMaxOfThree();
+Inputs:First integer: 25
+Second integer: 35
+Third integer: 15
+Expected Output: Maximum value of three integers: 35
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void maximum(int num1,int num2,int num3){
+    int max;
+    max = num1;
+    if(max<num2){
+        max = num2;
+    }
+    if(max<num3){
+        max = num3;
+    }
+    cout<<"The maximum value of three integers is : "<<max<<"\n";
+}
+int main(){
+    int num1 =25;
+    int num2 = 35;
+    int num3 = 15;
+    maximum(num1,num2,num3);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program to calculate the distance between two points.Function: void calculateDistance();
+Inputs:x1: 25
+y1: 15
+x2: 35
+y2: 10
+Expected Output: Distance between the points: 11.1803
+
+#include<bits/stdc++.h>
+using namespace std;
+void distance(double x1, double y1, double x2,double y2){
+    double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    cout<<"The Distance between the points : "<<distance<<"\n";
+}
+int main(){
+    double x1 = 25;
+    double y1 = 15;
+    double x2 = 35;
+    double y2 = 10;
+    distance(x1,y1,x2,y2);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program to read an amount (integer value) and break the amount into the smallest possible number of bank notes.Function: void breakAmount();
+Inputs:Amount: 375
+Expected Output:3 Note of 100.00
+1 Note of 50.00
+1 Note of 20.00
+0 Note of 10.00
+1 Note of 5.00
+0 Note of 2.00
+0 Note of 1.00
+==========================================================================================================================================================
+Write a C++ program that accepts four integers p, q, r, s from the user where q, r, and s are positive and p is even. If q is greater than r and s is greater than p and if the sum of r and s is greater than the sum of p and q, print "Correct values", otherwise print "Wrong values".Function: void checkValues();
+Inputs:First integer: p = 2
+Second integer: q = 35
+Third integer: r = 15
+Fourth integer: s = 46
+Expected Output: Wrong values
+==========================================================================================================================================================
+Write a C++ program to print the roots of Bhaskara’s formula from the given three floating numbers. Display a message if it is not possible to find the roots.
+Function: void bhaskaraFormula();
+Inputs:First number (a): 25
+Second number (b): 35
+Third number (c): 12
+Expected Output:
+Root1 = -0.60000
+Root2 = -0.80000
+
+==========================================================================================================================================================
+Write a C++ program that reads an integer and checks the specified range where it belongs. Print an error message if the number is negative or greater than 80.Function: void checkRange();
+Inputs:Integer: 15
+Expected Output: Range [0, 20]
+
+#include<bits/stdc++.h>
+using namespace std;
+void range(int number=15){
+    if(number<0 || number>80){
+        cout<<"out of Range ";
+    }
+    else if(number>=0 && number<=20){
+        cout<<"Range [0,20]"<<"\n";
+    }
+    else if(number>=21 && number<=40){
+        cout<<"Range [21,40]"<<"\n";
+    }
+    else if(number>=41 && number<=60){
+        cout<<"Range [41,60]"<<"\n";
+    }
+    else if(number>=61 && number<=80){
+        cout<<"Range [61,80]"<<"\n";
+    }
+}
+int main(){
+    int number=15;
+    range(number);
+    return 0;
+}
+==========================================================================================================================================================
+Write a C++ program that reads 5 numbers and sums all odd values between them.Function: void sumOfOddValues();
+Inputs:First number: 11
+Second number: 17
+Third number: 13
+Fourth number: 12
+Fifth number: 5
+Expected Output: Sum of all odd values: 46
+==========================================================================================================================================================
+Write a C++ program that reads three floating values and checks if it is possible to form a triangle with them. Also, calculate the perimeter of the triangle if the values are valid.Function: void checkTriangle();
+Inputs:First value: 25
+Second value: 15
+Third value: 35
+Expected Output: Perimeter = 75.0
+
+#include<bits/stdc++.h>
+using namespace std;
+void perimeter(float a,float b,float c){
+    float perimeter = a+b+c;
+    cout<<"Perimeter = "<<perimeter<<"\n";
+}
+int main(){
+    float a = 25.0;
+    float b = 15.0;
+    float c = 35.0;
+    perimeter(a,b,c);
+    return 0;
+}
+
+==========================================================================================================================================================
+Write a C++ program that reads two integers and checks whether they are multiples of each other.Function: void checkMultiples();
+Inputs:First number: 5
+Second number: 15
+Expected Output: Multiplied!
+
+#include<bits/stdc++.h>
+using namespace std;
+void  checkMultiples(int a,int b){
+    int  multiples = a*b;
+    cout<<"Multiplied : "<< multiples<<"\n";
+}
+int main(){
+    int a = 5;
+    int b = 15;
+     checkMultiples(a,b);
+     return 0;
+}
+
+==========================================================================================================================================================
+Write a C++ program that reads an integer between 1 and 12 and prints the month of the year in English.
+Function: void printMonth();
+Inputs:
+Integer: 8
+Expected Output: August
+==========================================================================================================================================================
