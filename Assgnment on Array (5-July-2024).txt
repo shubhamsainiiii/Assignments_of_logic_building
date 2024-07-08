@@ -1,0 +1,358 @@
+1. User se 15 students ke marks lena hai aur unhe print karna hai.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int marks[15];
+    cout<<"Enter the Marks of Students : ";
+    for(int i=0;i<15;i++){
+        cin>>marks[i];
+    }
+    cout<<"Marks of students : ";
+    for(int i=0;i<15;i++){
+        cout<<marks[i]<<" ";
+    }
+    return 0;
+}
+=================================================================================================================
+2. User se products ki value leni hai aur usme 2 ka skip karte hue data lena hai aur print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter the no. of product :\n";
+    cin>>n;
+    int value[n];
+    cout<<"Enter the value of product : ";
+    for(int i=0 ; i<n; i++){
+        cin>>value[i];
+    }
+    for(int i=0 ; i<n; i+=2){
+        cout<<value[i];
+    }
+    return 0;
+}
+
+=================================================================================================================
+3. User se 10 employees ke names lena hai aur har dusre employee ka name print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[10];
+    cout<<"Enter the Name of employee : ";
+    for(int i=0 ; i<10; i++){
+        cin>>name[i];
+    }
+    for(int i=0 ; i<10; i+=2){
+        cout<<name[i]<<"\n";
+    }
+    return 0;
+}
+=================================================================================================================
+4. User se 5 cities ka naam lena hai aur pehle 3 cities ke names print karna hai.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string city[5];
+    cout<<"Enter the Name of cities : ";
+    for(int i=0 ; i<5; i++){
+        cin>>city[i];
+    }
+    for(int i=0 ; i<3; i++){
+        cout<<city[i]<<"\n";
+    }
+    return 0;
+}
+=================================================================================================================
+5. User se 8 fruits ka naam lena hai aur sirf 4th aur 7th fruit ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string fruits[8];
+    cout<<"Enter the Name of fruits : ";
+    for(int i=0 ; i<8; i++){
+        cin>>fruits[i];
+    }
+    cout<<fruits[4]<<"\n"<<fruits[7];
+    return 0;
+}
+=================================================================================================================
+6. User se 12 students ki ages lena hai aur pehli aur aakhri 2 ages ko print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int age[12];
+    cout<<"Enter the age of students : ";
+    for(int i=0 ; i<12; i++){
+        cin>>age[i];
+    }
+    cout<<age[0]<<"\n"<<age[10]<<"\n"<<age[11];
+    return 0;
+}
+
+=================================================================================================================
+7. User se 6 books ke titles lena hai aur unhe ulte kram me print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[7];
+    int n = sizeof(name)/sizeof(name[0]);
+    cout<<"Enter the Name of Books : ";
+     for(int i=0; i<7; i++){
+      cin>>name[i];
+   }
+    for(int i=n-1; i>=0; i--){
+      cout<<name[i]<<" ";
+   }
+    return 0;
+}
+=================================================================================================================
+8. User se 10 products ke prices lena hai aur har teesre product ka price print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int price[10];
+    cout<<"Enter the Price of products : ";
+    for(int i=0 ; i<10; i++){
+        cin>>price[i];
+    }
+    for(int i=0 ; i<10; i+=3){
+        cout<<price[i]<<" ";
+    }   
+    return 0;
+}
+=================================================================================================================
+9. User se 4 colors ka naam lena hai aur unhe reverse order me print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string colorsname[4];
+    int n = sizeof(colorsname)/sizeof(colorsname[0]);
+    cout<<"Enter the Name of colors : ";
+     for(int i=0; i<4; i++){
+      cin>>colorsname[i];
+   }
+    for(int i=n-1; i>=0; i--){
+      cout<<colorsname[i]<<" ";
+   }
+    return 0;
+}
+
+=================================================================================================================
+10. User se 7 subjects ke marks lena hai aur unme se pehle aur aakhri 3 marks print karna hai.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int marks[7];
+    cout<<"Enter the marks : ";
+    for(int i=0 ; i<7; i++){
+        cin>>marks[i];
+    }    
+    cout<<marks[0]<<" "<<marks[4]<<" "<<marks[5]<<" "<<marks[6];   
+    return 0;
+}
+=================================================================================================================
+11. User se 5 programming languages ke names lena hai aur sirf pehla aur teesra name print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[5];
+    cout<<"Enter the name of languages : ";
+    for(int i=0 ; i<5; i++){
+        cin>>name[i];
+    }    
+    cout<<name[0]<<" "<<name[2];   
+    return 0;
+}
+=================================================================================================================
+12. User se 10 songs ke names lena hai aur unme se pehle 5 aur aakhri 5 songs ke names print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[10];
+    cout<<"Enter the name of songs : ";
+    for(int i=0 ; i<10; i++){
+        cin>>name[i];
+    }  
+    for(int i=0 ; i<10; i++){  
+        cout<<name[i]<<" ";
+    }   
+    return 0;
+}
+=================================================================================================================
+13. User se 6 vehicles ke types lena hai aur har doosre vehicle type ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string vehicle[6];
+    cout<<"Enter the type of vehicle : ";
+    for(int i=0 ; i<6; i++){
+        cin>>vehicle[i];
+    }  
+    for(int i=0 ; i<6; i+=2){  
+        cout<<vehicle[i]<<" ";
+    }   
+    return 0;
+}
+=================================================================================================================
+14. User se 8 friends ke names lena hai aur sirf middle 4 friends ke names print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[8];
+    cout<<"Enter the name : ";
+    for(int i=0 ; i<8; i++){
+        cin>>name[i];
+    }  
+    for(int i=2 ; i<=5; i++){  
+        cout<<name[i]<<" ";
+    }   
+    return 0;
+}
+=================================================================================================================
+15. User se 5 countries ka naam lena hai aur unme se sirf 1st aur last country ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[15];
+    cout<<"Enter the name of countries : ";
+    for(int i=0 ; i<15; i++){
+        cin>>name[i];
+    }  
+    cout<<name[0]<<" "<<name[14];
+   
+    return 0;
+}
+=================================================================================================================
+16. User se 10 movies ke names lena hai aur sirf har chauthi movie ka name print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[10];
+    cout<<"Enter the name of countries : ";
+    for(int i=0 ; i<10; i++){
+        cin>>name[i];
+    }  
+    for(int i=0 ; i<10; i+=4){
+        cout<<name[i]<<" ";
+    }  
+   
+    return 0;
+}
+=================================================================================================================
+17. User se 7 vegetables ka naam lena hai aur sirf pehli aur teesri vegetable ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[7];
+    cout<<"Enter the name of vegetables : ";
+    for(int i=0 ; i<7; i++){
+        cin>>name[i];
+    }  
+    cout<<name[0]<<" "<<name[2];
+    return 0;
+}
+=================================================================================================================
+18. User se 6 hobbies ka naam lena hai aur unme se har dusri hobby ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[6];
+    cout<<"Enter the name of hobbies : ";
+    for(int i=0 ; i<6; i++){
+        cin>>name[i];
+    }
+    for(int i=0 ; i<6; i+=2){
+        cout<<name[i]<<" ";
+    }  
+    return 0;
+}
+=================================================================================================================
+19. User se 4 drinks ke names lena hai aur unme se 2nd aur 4th drink ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[4];
+    cout<<"Enter the name of drinks : ";
+    for(int i=0 ; i<4; i++){
+        cin>>name[i];
+    }   
+    cout<<name[1]<<" "<<name[3]; 
+    return 0;
+}
+=================================================================================================================
+20. User se 9 sports ke names lena hai aur unme se har teesre sport ka naam print karna hai.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string name[9];
+    cout<<"Enter the name of sports : ";
+    for(int i=0 ; i<9; i++){
+        cin>>name[i];
+    }   
+    for(int i=0 ; i<9; i+=3){
+        cout<<name[i]<<" "; 
+    }   
+    return 0;
+}
+=================================================================================================================
