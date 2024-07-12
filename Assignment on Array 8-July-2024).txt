@@ -1,0 +1,1160 @@
+1. create an array of float with 10 dataas in it using indexing wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<float>arr(n);
+    cout<<"Enter the value : ";
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+2.create an array of int with 10 datas in it using indexing wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<int>arr(n);
+    cout<<"Enter the value : ";
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+3.create an array ofstrings with 10 datas in it using indexing wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<string>arr(n);
+    cout<<"Enter the Data : ";
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+5. create an array of float with 10 dataas in it using value based wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<float>arr(n);
+    cout<<"Enter the Data : ";
+    for(auto &it: arr){
+        cin>>it;
+    }
+    for(auto it:arr){
+        cout<<it<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+4.create an array of int with 10 datas in it using value based wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<int>arr(n);
+    cout<<"Enter the Data : ";
+    for(auto &it: arr){
+        cin>>it;
+    }
+    for(auto it:arr){
+        cout<<it<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+6.create an array of strings with 10 datas in it using value based wala method.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n=10;
+    vector<string>arr(n);
+    cout<<"Enter the Data : ";
+    for(auto &it: arr){
+        cin>>it;
+    }
+    for(auto it:arr){
+        cout<<it<<" ";
+    }
+    return 0;
+}
+=======================================================================================================================================================================
+7.Take 5 inputs from the user and calculate their sum. If the sum is greater than 50, call a function that counts the number of occurrences of 
+a specific integer in an array. If the sum is less than 50, call a function to find the last occurrence of a specific integer in an array. 
+If the sum is exactly 50, call a function that takes an array of integers and returns an array containing the squares of each element.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>square(vector<int>&arry)
+{
+    vector<int>ans(arry.size());  
+    for(int i=0;i<arry.size();i++)
+    {
+       ans[i]=arry[i]*arry[i];
+    }
+    return ans;
+}
+
+vector<int>lastocc( vector<int>&arry,int &key)
+{
+     int lindex=-1;
+     for(int i=0;i<arry.size();i++)
+    {
+        if(key==arry[i])
+        {
+            lindex=i;
+        }
+    }
+    return {lindex};
+}
+
+int countofkey(vector<int>&arry,int &key){
+    int count=0;
+    for(int i=0;i<arry.size();i++){
+        if(key==arry[i]){
+            count++;
+        }
+    }
+    return count;
+}
+int main()
+{
+    int n=5;
+    int sum=0;
+    cout<<"Enter the numbers : ";
+    vector<int>arr(n);
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+    }
+    cout<<"The value of sum is : "<<sum<<"\n";
+    
+    int num=10;
+    cout<<"Enter the numbers : \n";
+    vector<int>arry(num);
+    int sz=sizeof(arry) / sizeof(arry[0]);
+    for(auto &numb:arry)
+    {
+         cin>>numb;
+    }
+    int key=2;
+    if(sum>50){
+        cout<<"The value of count is : "<<countofkey(arry,key);
+    }
+    else if(sum<50){
+        int key=2;
+        vector<int>ans = lastocc(arry,key);
+        for(auto it:ans)
+        {
+            cout<<"The value of last occurence is : "<<it<<" ";
+        }
+    }
+    else {
+        vector<int>ans = square(arry);
+        for(auto it:ans)
+        {
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+    }
+}
+=======================================================================================================================================================================
+8.Take 6 inputs from the user and calculate their average. If the average is greater than 20, call a function that finds the maximum value in an array of integers. 
+If the average is less than 20, call a function to find the minimum value in an array of floats. 
+If the average is exactly 20, call a function that takes an array of strings and returns the length of each string.
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> lengthofElement(vector<string>&arr){ 
+    vector<int>lengths; 
+    for(string str : arr) 
+    { 
+          lengths.push_back(str.length()); 
+    } 
+return lengths; 
+} 
+
+
+int maximumofarr(vector<int>&arr,int &max)
+{
+ for( int i = 1; i < arr.size(); i++)
+	{
+		if(max < arr[i])
+			max = arr[i];
+	}
+    return max;
+}
+
+float minimumofarr(vector<float>&arr,float &min)
+{
+ for( int i = 1; i < arr.size(); i++)
+	{
+		if(min > arr[i])
+			min = arr[i];
+	}
+    return min;
+}
+
+int main()
+{
+    float sum=0.0;
+    float avg=0.0;
+    vector<int>arr(6);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr)
+    {
+        float size=arr.size();
+        sum=sum+it;
+        avg=sum/size;
+    }
+    cout<<"The average is "<<avg<<"\n";
+    if(avg==20)
+    {
+        vector<string>arr={"Shubham","Ravi","Vivek","Neha","Ayush"};
+        vector<int>lengths = lengthofElement(arr); 
+        cout<<"Length of each element of array is : "; 
+        for(int str : lengths){ 
+           cout<<str<<" "; 
+        }
+    }
+    else if(avg<20)
+    {
+       vector<float>arr={12.2,23.4,34.21,9.7,56.8,67.3,89.9,32.7,54.4,12.54,76.89};
+       float min=arr[0];
+       cout<<"The Minimum value of given array is : "<<minimumofarr(arr,min);
+    }
+    else if(avg>20) {
+       vector<int>arr={12,23,34,56,67,89,32,54,12,76};
+       int max=arr[0];
+       cout<<"The maximum value of given array is : "<<maximumofarr(arr,max);
+    }
+}
+=======================================================================================================================================================================
+9.Take 4 inputs from the user and calculate their sum. If the sum is greater than 100, call a function that counts the number of even numbers in an array. 
+If the sum is less than 100, call a function to find the first occurrence of a specific string in an array. 
+If the sum is exactly 100, call a function that takes an array of integers and returns the product of all elements.
+#include<bits/stdc++.h>
+using namespace std;
+
+int productofArray(vector<int> &aarry)
+{
+    int product = 1; 
+    for(int i = 0 ; i<aarry.size() ; i++){ 
+        product = product*aarry[i]; 
+    } 
+    return product;
+}
+
+
+int firstocc(vector<string>&str,string &key)
+{
+    int findex=-1;
+    for(int i=0;i<str.size();i++)
+    {
+        if(str[i]==key)
+        {
+            findex=i;
+            break;
+        }
+    }
+    return findex;
+}
+
+int countofEven(vector<int>&arry)
+{
+    int count=0;
+    for(auto it:arry){
+        if(it%2==0){
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n=4;
+    int sum=0;
+    vector<int>arr(n);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+    }
+    if(sum>100){
+        vector<int>arry={12,23,34,45,56,67,78,89,90};
+        cout<<"The value of Even numbers in given array is : "<<countofEven(arry)<<"\n";
+    }
+    else if(sum<100){
+        vector<string>str={"Shubham","Ravi","Shubham","Mohit","Raja","Shubham","Vinay","Shubham"};
+        string key="Shubham";
+        cout<<"The value of first occurence is : "<<firstocc(str,key)<<" ";
+    }
+    else{
+        vector<int>aarry={1,2,3,4,5};
+        cout<<"The product of given array is : "<<productofArray(aarry);
+    }
+}
+=======================================================================================================================================================================
+10.Take 7 inputs from the user and calculate their average. If the average is greater than 30, call a function that counts the number of odd numbers in an array. 
+If the average is less than 30, call a function to find the sum of all positive numbers in an array of floats. 
+If the average is exactly 30, call a function that takes an array of integers and returns an array with each element multiplied by 2.
+
+#include<bits/stdc++.h>
+using namespace std;
+int summation(vector<int>&arr)
+{
+    int sum=0;
+    for(auto it:arr){
+        if(it>0){
+            sum+=it;
+        }
+    }
+    return sum;
+}
+
+vector<int>multiply(vector<int>&arr)
+{
+    vector<int>ans(arr.size());  
+    for(int i=0;i<arr.size();i++)
+    {
+       ans[i]=arr[i]*2;
+    }
+    return ans;
+}
+
+int countofodd(vector<int>&arr)
+{
+    int oddcount=0;
+    for(int num :arr){
+        if(num%2!=0){
+            oddcount++;
+        }
+    }
+    return oddcount;
+}
+
+int main()
+{
+    float sum=0.0;
+    float avg=0.0;
+    vector<int>arr(7);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr)
+    {
+        float size=arr.size();
+        sum=sum+it;
+        avg=sum/size;
+    }
+    cout<<"The average is "<<avg<<"\n";
+    if(avg==30)
+    {
+        vector<int>arr={1,2,3,4,23,45,12,67,56,90};
+        vector<int>ans = multiply(arr);
+        for(auto it:ans)
+        {
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+
+    }
+    else if(avg<30)
+    {
+        vector<int>arr={34,98,75,82,-34,-23,-54,24,-2,12,-77};
+        cout<<"The sum of all postitive number is : "<<summation(arr);
+    }
+    else if(avg>30) {
+        vector<int>arr={12,34,65,23,79,32,87,53,33,89,12,86};
+        cout<<"Count of odd elements in given array "<<countofodd(arr);
+    }
+}
+=======================================================================================================================================================================
+11.Take 5 inputs from the user and calculate their sum. If the sum is greater than 75, call a function that counts the number of vowels in an array of strings. 
+If the sum is less than 75, call a function to find the sum of the first and last elements in an array of integers. 
+If the sum is exactly 75, call a function that takes an array of floats and returns an array containing only the numbers greater than the average of the array.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<float> average(vector<float>&arr)
+{
+    vector<float>newarr;
+    float sum=0.0;
+    float avrg=0.0;
+    for(auto it: arr){
+        sum+=it;
+        avrg=sum/arr.size();
+    }
+    for(auto it: arr){
+        if(it>avrg){
+            newarr.push_back(it);
+        }
+    }
+    return newarr;
+}
+
+float summation(vector<float> &arr)
+{
+    float sum=arr[0]+arr[arr.size()-1];
+    return sum;
+}
+
+int countofVowels(vector<string>&arry)
+{
+    int count=0;
+    for(auto &it:arry){
+        for(char a:it){
+        a=tolower(a);
+        if(a=='a' ||a=='e' || a=='i' || a=='o' || a=='u'){
+            count++;
+        }
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int sum=0;
+    vector<int>arr(5);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+    }
+    if(sum>75){
+        vector<string>arry={"shubham","ravi","AJAY","prIyankA"}; 
+        cout<<"The value of vowels in given array is : "<<countofVowels(arry);
+    }
+    else if(sum<75){
+        vector<float>arr={1.2,23.4,4.2,6.34,9.4,12.7};
+        cout<<"The sum of first and last element is : "<<summation(arr);
+    }
+    else{
+        vector<float>arr={1.2,4.23,54.34,4.5,56.76,43.5,26.89,67.78};
+        vector<float>ary=average(arr);
+        for(auto it:ary){
+            cout<<it<<" ";
+        }
+    }
+}
+=======================================================================================================================================================================
+12.Take 8 inputs from the user and calculate their average. If the average is greater than 40, call a function that counts the number of occurrences of a specific 
+character in an array of strings. 
+If the average is less than 40, call a function to find the last occurrence of a specific float in an array. 
+If the average is exactly 40, call a function that takes an array of integers and returns an array containing only the even numbers.
+
+#include<bits/stdc++.h> 
+using namespace std; 
+
+vector<int> lengtharr(vector<string>&arr,string &key)
+{
+    vector<int>newarr;
+    int count;
+    for(auto str:arr){
+        count=0;
+            for(auto it:str){
+                if(it=='h')
+                {
+                    count++;
+                }
+            }
+        newarr.push_back(count);
+    }
+    return newarr;
+}
+
+
+vector<int>evenarr(vector<int>&arr) 
+{ 
+    vector<int>newarr; 
+    int sum=0; 
+    int avrg=0; 
+    for(auto it: arr){ 
+        sum+=it; 
+        avrg=sum/arr.size(); 
+    } 
+    for(auto it: arr){ 
+        if(it%2==0){ 
+            newarr.push_back(it); 
+        } 
+    } 
+    return newarr; 
+} 
+
+int lastoccurrence(vector<float>&arr,float &key){ 
+    int findex = -1; 
+    for(int i = 0 ; i<arr.size() ; i++){ 
+        if(arr[i]==key){ 
+            findex = i; 
+        } 
+    } 
+    return findex; 
+} 
+
+int main()
+{
+    float sum=0.0,avrg=0.0; 
+    vector<int>arr(8);
+    cout<<"Enter the number :\n";
+    for(auto &it:arr){
+        cin>>it;
+    }    
+    for(auto it:arr){
+        sum=sum+it;
+        avrg=sum/arr.size();
+    }
+    if(avrg>40){
+        vector<string>arr={"Shubham","Ravi","Vivek","Shivam","Neha","Shubham"};
+        string key="h";
+        vector<int>newarr=lengtharr(arr,key);
+        for(auto it:newarr){
+            cout<<it<<" ";
+        }
+    }
+    else if(avrg<40){
+        vector<float>arr = {12.3,2.7,3.8,43.7,3.8,56.87,67.8,3.8,2.0}; 
+        float key  = 3.8; 
+        cout<<"last occurrence : "<<lastoccurrence(arr,key);
+    }
+    else{
+        vector<int>arr = {12,43,56,78,33,45,68,90,35,47}; 
+        vector<int>ary=evenarr(arr); 
+        for(auto it:ary){ 
+            cout<<it<<" "; 
+        } 
+    }
+}
+=======================================================================================================================================================================
+13.Take 6 inputs from the user and calculate their sum. If the sum is greater than 60, call a function that counts the number of elements greater than 
+a specified value in an array. 
+If the sum is less than 60, call a function to find the minimum value in an array of integers. 
+If the sum is exactly 60, call a function that takes an array of floats and returns the average of elements less than a specified value.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+float averageofElement(vector<float>&arr,float &key)
+{
+    float sum=0.0;
+    float avg=0.0,count=0.0;
+    for(auto it: arr){
+        if(it<key){
+            sum+=it;
+            count++;
+        }
+    }
+    return (avg=sum/count);
+}
+
+int countofElement(vector<int>&arr,int &key)
+{
+    int count=0;
+    for(auto it:arr){
+        if(it>key){
+            count++;
+        }
+    }
+    return count;
+}
+
+int minimumofarr(vector<int>&arr,int &min)
+{
+ for( int i = 1; i < arr.size(); i++)
+	{
+		if(min > arr[i])
+			min = arr[i];
+	}
+    return min;
+}
+
+int main()
+{
+    int sum=0;
+    vector<int>arr(6);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr)
+    {
+        sum=sum+it;
+    }
+    if(sum==60)
+    {
+        vector<float>arr={1.2,2.3,4.1,5.3,12.4,23.9,43.2,83.5};
+        float key=23.9;
+        cout<<"The average of selected elements is "<<averageofElement(arr,key);
+
+    }
+    else if(sum<60)
+    {
+       vector<int>arr={12,23,45,32,76,32,52,68,43};
+       int min=arr[0];
+       cout<<"The value of minimum number is : "<<minimumofarr(arr,min);
+    }
+    else if(sum>60) {
+       vector<int>arr={12,23,45,32,76,12,52,18,3,21,65,22};
+       int key=23;
+       cout<<"The count of number which greater than "<<key<<" is : "<<countofElement(arr,key);
+    }
+}
+=======================================================================================================================================================================
+14.Take 3 inputs from the user and calculate their sum. If the sum is greater than 25, call a function that counts the number of elements in an array of strings. 
+If the sum is less than 25, call a function to find the maximum value in an array of floats. 
+If the sum is exactly 25, call a function that takes an array of integers and returns an array containing the cubes of each element.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int counts(vector<string>&arr)
+{
+    return arr.size();
+}
+
+vector<int>cubes(vector<int>&arr)
+{
+    vector<int>cube(arr.size());  
+    for(int i=0;i<arr.size();i++)
+    {
+       cube[i]=arr[i]*arr[i]*arr[i];
+    }
+    return cube;
+}
+
+int maximum(vector<int>&arr,int &max)
+{
+    for(int i=1;i<arr.size();i++){
+        if(max<arr[i]){
+            max=arr[i];
+        }
+    }
+    return max;
+}
+int main()
+{
+    int sum=0;
+    vector<int>arr(3);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr)
+    {
+        sum=sum+it;
+    }
+    if(sum==25)
+    {
+        vector<int>arr={1,2,3,4,5,6,5,4,2,7,1,8,2,9,3};
+        vector<int>cbs=cubes(arr);
+        for(auto it:cbs){
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+    }
+    else if(sum<25)
+    {
+        vector<int>arr={12,23,34,56,67,89,32,54,1,4,3};
+        int max=arr[0];
+        cout<<"The value of maximum number in given array : "<<maximum(arr,max);
+    }
+    else if(sum>25) {
+        vector<string>arr={"shubham","ravi","rajesh","divya","neha","rishi"};
+        cout<<"Total number of elements in the array is : "<<counts(arr);
+    }
+}
+=======================================================================================================================================================================
+15.Take 5 inputs from the user and calculate their average. If the average is greater than 15, call a function 
+that counts the number of negative numbers in an array of integers. 
+If the average is less than 15, call a function to find the first occurrence of a specific float in an array. 
+If the average is exactly 15, call a function that takes an array of strings and returns the concatenation of all elements.
+
+#include<bits/stdc++.h>
+using namespace std;
+string concatenation(vector<string>&arr)
+{
+   string sum = "";
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int lastocc(vector<float>&arr,float key)
+{
+    int findex=-1;
+    for(int i=1;i<arr.size();i++)
+    {
+        if(arr[i]==key){
+            findex=i;
+            break;
+        }
+    }
+    return findex;
+}
+
+int countofoccurence(vector<int>&arr)
+{
+    int count=0;
+    for(int num: arr)
+    {
+        if(num<0){
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int sum=0;
+    float avg=0.0;
+    vector<int>arr(5);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+        avg=sum/arr.size();
+    }
+    if(avg>15){
+        vector<int>arr={12,34,-45,7,-23,-98,-45,34,-65};
+        cout<<"The count of negative numbers in array is : "<<countofoccurence(arr);
+    }
+    else if(avg<15){
+        vector<float>arr={12.1,23.2,1.2,4.5,8.9,2,8,8.9,2.3,8.8};
+        float key=8.9;   
+        cout<<"The first occurence of given number is : "<<lastocc(arr,key);
+    }
+    else{
+        vector<string>arr={"Shubham","Ravi","Neha"};
+        cout<<"Concatenatin of the array is : "<<concatenation(arr);
+    }
+}
+=======================================================================================================================================================================
+16.Take 4 inputs from the user and calculate their sum. If the sum is greater than 45, call a function that 
+counts the number of elements divisible by 5 in an array of integers. 
+If the sum is less than 45, call a function to find the last occurrence of a specific string in an array. 
+If the sum is exactly 45, call a function that takes an array of floats and returns the sum of elements greater than a specified value.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int divisible(vector<int>&arr)
+{
+    int count=0;
+    for(int num: arr){
+        if(num%5==0){
+            count++;
+        }
+    }
+    return count;
+} 
+
+float sumofElement(vector<float>&arr,float &key)
+{
+    float sum=0.0;
+    for(auto it: arr){
+        if(it<key){
+            sum+=it;
+        }
+    }
+    return sum;
+}
+
+int lastocc(vector<string>&arr,string key)
+{
+    int lindex=-1;
+    for(int i=1;i<arr.size();i++)
+    {
+        if(arr[i]==key){
+            lindex=i;
+        }
+    }
+    return lindex;
+}
+int main()
+{
+    int sum=0;
+    vector<int>arr(4);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr)
+    {
+        sum=sum+it;
+    }
+    if(sum==45)
+    {
+        vector<float>arr={1.2,2.3,1.2,3.3,2.6,3.4,12.21,4.2,56.23,7.2,56.8};
+        float key=3.4;
+        cout<<"Sum of elements is : "<<sumofElement(arr,key);
+    }
+    else if(sum<45)
+    {
+        vector<string>arr={"Shubham","Ravi","Neha","Nisha","Mohit","Shubham","Vivek","Shubham","Ayush"};
+        string key="Shubham";
+        cout<<"The last occurence is : "<<lastocc(arr,key);
+    }
+    else if(sum>45) {
+       vector<int>arr={12,23,45,76,43,132,9,50,120,35};
+    cout<<"count of number which are divisible by 5 is : "<<divisible(arr);
+    }
+}
+=======================================================================================================================================================================
+17.Take an input from the user. If the input is a multiple of 3, call a function that finds the maximum value in an array of floats. 
+If the input is a multiple of 4, call a function that counts the number of elements in an array of integers that are greater than a specified value. 
+If the input is zero, call a function that returns the length of each string in an array of strings.
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> lengtharr(vector<string>&arr)
+{
+    vector<int>newarr;
+    for(auto it:arr)
+    {
+        newarr.push_back(it.length());
+    }
+    return newarr;
+}
+
+int keyarr(vector<int>&arr,int &key)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(key<it)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+float maximum(vector<float>&arr)
+{
+    float max=arr[0];
+    for(auto it:arr)
+    {
+        if(max<it)
+        {
+            max=it;
+        }
+    }
+    return max;
+}
+
+bool ismultiple(int a ,int n)
+{
+    return (a%n==0)?true:false;
+}
+
+int main()
+{
+    int a;
+    cout<<"Enter an Input : ";
+    cin>>a;
+    if(a==0)
+    {
+        vector<string>arr={"Shubham","Ravi","Neha","Ram","Vishal"};
+        vector<int>newarr=lengtharr(arr);
+        for(auto it : newarr)
+        {
+            cout<<it<<" ";
+        }
+    }
+    else if(ismultiple(a,3))
+    {
+        vector<float>arr={1.2,3.23,4.6,76.4,6.8,9.4,6.7,3.6,2.9,3.2};
+        cout<<"Maximum number of given array is : "<<maximum(arr);
+    }
+    else if(ismultiple(a,4))
+    {
+        vector<int>arr={12,23,46,4,68,94,17,36,29,3};
+        int key=17;
+        cout<<"The counts of elements which are greater than the key : "<<keyarr(arr,key);
+    }
+}
+=======================================================================================================================================================================
+18.Take an input from the user. If the input is greater than 100, call a function that finds the 
+first occurrence of a specific integer in an array. If the input is less than 100, 
+call a function that counts the number of elements in an array of floats that are less than a specified value. 
+If the input is exactly 100, call a function that returns an array of integers with each element incremented by 1.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int countofElement(vector<float>&arr,float &key)
+{
+    int count=0;
+    for(auto it: arr){
+        if(it<key){
+            count++;
+        }
+    }
+    return count;
+}
+
+vector<int>increment(vector<int>&arr)
+{
+    vector<int>ans(arr.size());  
+    for(int i=0;i<arr.size();i++)
+    {
+       ans[i]=arr[i]+1;
+    }
+    return ans;
+}
+
+int firstocc( vector<int>&arr,int &key)
+{
+     int findex=-1;
+     for(int i=0;i<arr.size();i++)
+    {
+        if(key==arr[i])
+        {
+            findex=i;
+            break;
+        }
+    }
+    return findex;
+}
+
+int main()
+{
+    vector<int>arr(1);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto n:arr){
+        if(n==0){
+            vector<int>arr={1,0,3,2,5,6,8,5,3,2,8,9};
+            vector<int>ans = increment(arr);
+            for(auto it:ans)
+            {
+                cout<<it<<" ";
+            }
+            cout<<"\n";
+        }
+        
+        else if(n<100){
+            vector<float>arr={1.2,0.6,3.2,22.6,5.6,16.3,28.3,35.6,37.1};
+            float key=22.6;
+            cout<<"The count of elements in the array less than "<<key<<" is : "<<countofElement(arr,key)<<" ";
+        }
+        else if(n>100){
+            vector<int>arr={1,0,3,2,5,6,8,5,3,2,8,9};
+            int key=2;
+            cout<<"The value of first occurence is : "<<firstocc(arr,key);
+        }
+    }
+}
+=======================================================================================================================================================================
+19.Take an input from the user. If the input is even, call a function that counts the number of even numbers in an array of integers. 
+If the input is odd, call a function that finds the last occurrence of a specific integer in an array. 
+If the input is zero, call a function that returns an array of integers multiplied by 3.  
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>multiply(vector<int>&arr)
+{
+    vector<int>newarr(arr.size());  
+    for(int i=0;i<arr.size();i++)
+    {
+       newarr[i]=arr[i]*3;
+    }
+    return newarr;
+}
+
+int lastoccurrence(vector<int>&arr,int &key){ 
+    int lastindex = -1; 
+    for(int i = 0 ; i<arr.size() ; i++){ 
+        if(arr[i]==key){ 
+            lastindex = i; 
+        } 
+    } 
+    return lastindex; 
+} 
+
+vector<int>evenarr(vector<int>&arr) 
+{ 
+    vector<int>newarr;  
+    for(auto it: arr){ 
+        if(it%2==0){ 
+            newarr.push_back(it); 
+        } 
+    } 
+    return newarr; 
+}
+bool isevenodd(int a )
+{
+    return (a%2==0)?true:false;
+}
+
+int main()
+{
+    int a;
+    cout<<"Enter an Input : ";
+    cin>>a;
+    if(a==0)
+    {
+        vector<int>arr={1,2,3,4,23,45,12,67,56,90};
+        vector<int>newarr = multiply(arr);
+        for(auto it:newarr)
+        {
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+    }
+    else if(isevenodd(a))
+    {
+        vector<int>arr={1,2,32,6,45,87,56,9,68,54,23,67,34,34};
+        vector<int>ary=evenarr(arr); 
+        for(auto it:ary){ 
+            cout<<it<<" "; 
+        }
+    }
+    else 
+    {
+        vector<int>arr={1,23,32,6,45,23,56,9,68,54,23,67,34,34};
+        int key=23;
+        cout<<"The last occurence of the key is : "<<lastoccurrence(arr,key);
+    }
+}
+=======================================================================================================================================================================
+20.Take an input from the user. If the input is a prime number, call a function that 
+counts the number of occurrences of a specific string in an array of strings. 
+If the input is not a prime number, call a function that finds the minimum value in an array of integers. 
+If the input is zero, call a function that returns an array of integers squared.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int countoccurence(vector<string>&arr,string &key)
+{
+    vector<int>newarr;
+    int count=0;
+    for(auto it:arr){
+        if(it=="Shubham"){
+            count++;
+        }
+    }
+    return count;
+}
+
+int minimumofarr(vector<int>&arr,int &min)
+{
+ for( int i = 1; i < arr.size(); i++)
+	{
+		if(min > arr[i])
+			min = arr[i];
+	}
+    return min;
+}
+
+
+vector<int>square(vector<int>&arr)
+{
+    vector<int>newarr(arr.size());  
+    for(int i=0;i<arr.size();i++)
+    {
+       newarr[i]=arr[i]*arr[i];
+    }
+    return newarr;
+}
+bool isPrime(int a)
+{
+    if(a==0 || a==1){
+        return false;
+    }
+    for(int j=2;j<a/2;j++){
+        if(a%j==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int a;
+    cout<<"Enter an Input : ";
+    cin>>a;
+    if(a==0){
+        vector<int>arr={1,2,5,7,4,24,21,87,34,2,0,34};
+        vector<int>newarr = square(arr);
+        for(auto it:newarr)
+        {
+            cout<<it<<" ";
+        }
+        cout<<"\n";
+    }
+    else if(isPrime(a)){
+        vector<string>arr={"Shubham","Ravi","Vivek","Shubham","Shivam","Neha","Shubham","Kavya","Shubham"};
+        string key="Shubham";
+        cout<<"The count of key is : "<<countoccurence(arr,key);
+    }
+    else if(!isPrime(a)){
+        vector<int>arr={2,5,7,4,24,21,87,34,2,8,34};
+        int min=arr[0];
+        cout<<"The value of minimum number is : "<<minimumofarr(arr,min);
+    } 
+}
+=======================================================================================================================================================================
