@@ -1,0 +1,253 @@
+1.Calculate the average of all elements in the array:
+If the average is greater than 30, call a function sumPositiveNumbers that finds the sum of all positive numbers in the array.
+If the average is less than 30, call a function sumNegativeNumbers that finds the sum of all negative numbers in the array.
+If the average is exactly 30, call a function countZeros that returns the count of zero elements in the array.
+
+#include<bits/stdc++.h>
+using namespace std;
+int countZeros(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int sumNegativeNumbers(vector<int>&arr)
+{
+    int sumofnegative=0;
+    for(auto it:arr)
+    {
+        if(it<0)
+        {
+            sumofnegative+=it;
+        }
+    }
+    return sumofnegative;
+}
+int sumPositiveNumbers(vector<int>&arr)
+{
+    int sumofpositive=0;
+    for(auto it:arr)
+    {
+        if(it>0)
+        {
+            sumofpositive+=it;
+        }
+    }
+    return sumofpositive;
+}
+
+int main()
+{
+   vector<float>arr(5);
+   float sum=0.0,avg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avg=sum/arr.size();
+   }
+   if(avg>30)
+   {
+    vector<int>arr={23,34,46,-67,34,23,-67,-45,90,98};
+    cout<<"The sum of Positive Numbers is : "<<sumPositiveNumbers(arr);
+   }
+   else if(avg<30)
+   {
+    vector<int>arr={23,-34,46,-67,34,-23,-67,-45,90,-98};
+    cout<<"The sum of Negative Numbers is : "<<sumNegativeNumbers(arr);
+   }
+   else 
+   {
+    vector<int>arr={23,-34,0,-67,0,-23,0,-45,0,-98};
+    cout<<"The Count of Zero in The Array is : "<<countZeros(arr);
+   }
+}
+========================================================================================================================================
+2.Calculate the sum of all elements in the array:
+If the sum is greater than 200, call a function multiplesOf2 that returns an array of multiples of 2 from the original array.
+If the sum is less than 200, call a function multiplesOf3 that returns an array of multiples of 3 from the original array.
+If the sum is exactly 200, call a function multiplesOf5 that returns an array of multiples of 5 from the original array.
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>multiplesOf2(vector<int>&arr)
+{
+    vector<int>multipleoftwo;
+    for(auto it: arr)
+    {
+        if(it%2==0)
+        {
+            multipleoftwo.push_back(it);
+        }
+    }
+    return multipleoftwo;
+}
+
+vector<int>multiplesOf3(vector<int>&arr)
+{
+    vector<int>multipleofthree;
+    for(auto it: arr)
+    {
+        if(it%3==0)
+        {
+            multipleofthree.push_back(it);
+        }
+    }
+    return multipleofthree;
+}
+
+vector<int>multiplesOf5(vector<int>&arr)
+{
+    vector<int>multipleoffive;
+    for(auto it: arr)
+    {
+        if(it%5==0)
+        {
+            multipleoffive.push_back(it);
+        }
+    }
+    return multipleoffive;
+}
+
+int main()
+{
+   vector<int>arr(3);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum>200)
+   {
+    vector<int>arr={23,34,46,-67,34,23,-67,-45,90,98};
+    vector<int>newarr=multiplesOf2(arr);
+    cout<<"The array of Multiple of 2 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else if(sum<200)
+   {
+    vector<int>arr={12,34,56,78,90,99,24,-24,-56,-33};
+    vector<int>newarr=multiplesOf3(arr);
+    cout<<"The array of Multiple of 3 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={95,-34,200,-67,-520,-23,190,-50,0,-98};
+    vector<int>newarr=multiplesOf5(arr);
+    cout<<"The array of Multiple of 5 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+========================================================================================================================================
+3.Calculate the sum of all elements in the array:
+If the sum is greater than 150, call a function findMaxElement that returns the maximum element in the array.
+If the sum is less than 150, call a function findMinElement that returns the minimum element in the array.
+If the sum is exactly 150, call a function multiplesOf5 that returns an array of multiples of 5 from the original array.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int findMaxElement(vector<int>&arr,int &max)
+{
+    for(int i=0;i<arr.size();i++)
+    {
+        if(max<arr[i])
+        {
+            max=arr[i];
+        }
+    }
+    return max;
+}
+
+int findMinElement(vector<int> &arr)
+{
+    int min=arr[0];
+    for(int i=0; i<arr.size();i++)
+    {
+        if(min>arr[i])
+        {
+            min=arr[i];
+        }
+    }
+    return min;
+}
+
+vector<int>multiplesOf5(vector<int>&arr)
+{
+    vector<int>multipleoffive;
+    for(auto it: arr)
+    {
+        if(it%5==0)
+        {
+            multipleoffive.push_back(it);
+        }
+    }
+    return multipleoffive;
+}
+
+int main()
+{
+   vector<int>arr(5);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum<150)
+   {
+    vector<int>arr={12,23,5,4,23,5,78,9,3};
+    cout<<"The Minimum Element of the array is : "<<findMinElement(arr);
+   }
+   else if(sum>150)
+   {
+    vector<int>arr={23,34,46,-67,34,23,-67,-45,90,98};
+    int max=arr[0];
+    cout<<"The Maximum element of the array is : "<<findMaxElement(arr,max);
+   }
+   
+   else 
+   {
+    vector<int>arr={50,-34,560,-67,10,-23,35,-45,0,-98};
+    vector<int>newarr=multiplesOf5(arr);
+    cout<<"The array of Multiple of 5 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}}
