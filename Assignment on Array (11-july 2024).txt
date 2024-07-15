@@ -1,0 +1,1864 @@
+1.If the product is greater than 100, call a function that separates even and odd numbers from an array. 
+If the product is less than 100, call a function that separates prime and non-prime numbers. 
+If the product is exactly 100, call a function that returns an array with each element squared.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> squareofarr(vector<int>&arr)
+{
+    vector<int>square(arr.size());
+    for(int i=0;i<=arr.size();i++)
+    {
+        square[i]=arr[i]*arr[i];
+    }
+    return square;
+}
+
+bool isPrime(int a)
+{
+    if(a==0 || a==1 || a<0)
+    {
+        return false;
+    }
+    for(int i=2; i<a/2; i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<vector<int>>primenotprime(vector<int>&arr)
+{
+    vector<int>prime;
+    vector<int>notprime;
+
+    for(auto it:arr)
+    {
+        if(isPrime(it))
+        {
+            prime.push_back(it);
+        }
+        else
+        {
+            notprime.push_back(it);
+        }
+    }
+    return {prime,notprime};
+}
+
+vector<vector<int>>evenodd(vector<int>&arr)
+{
+    vector<int>evenarr;
+    vector<int>oddarr;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            evenarr.push_back(it);
+        }
+        else
+        {
+            oddarr.push_back(it);
+        }
+    }
+    return {evenarr,oddarr};
+}
+
+int main()
+{
+   int n;
+   vector<int>arr(2);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product==100)
+   {
+    vector<int>arr={12,23,34,45,56,67,78,89,9,98,76,54,32,21};
+    vector<int>newarr=squareofarr(arr);
+    for( auto it:newarr)
+       {
+        cout<<it<<" ";
+       }
+       cout<<"\n";
+   }
+   else if(product>100)
+   {
+    vector<int>arr={12,23,34,45,56,67,78,89,9,98,76,54,32,21};
+    vector<vector<int>>newarr=evenodd(arr);
+    for(auto it:newarr)
+    {
+       for( auto num:it)
+       {
+        cout<<num<<" ";
+       }
+       cout<<"\n";
+    }
+   }
+   else if(product<100)
+   {
+    vector<int>arr={12,23,34,45,56,67,78,89,9,98,76,54,32,21};
+    vector<vector<int>>newarr=primenotprime(arr);
+    for(auto it:newarr)
+    {
+       for( auto num:it)
+       {
+        cout<<num<<" ";
+       }
+       cout<<"\n";
+    }
+   }
+}
+=======================================================================================================================================
+4.If the product is greater than 200, call a function that separates prime and non-prime numbers in an array. 
+If the product is less than 200, call a function that returns the sum of the first and last elements in an array.--------(Not Working)-------- 
+If the product is exactly 200, call a function that returns an array of cubes of each element.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> cubeofarr(vector<int>&arr)
+{
+    vector<int>cube(arr.size());
+    for(int i=0;i<=arr.size();i++)
+    {
+        cube[i]=arr[i]*arr[i]*arr[i];
+    }
+    return cube;
+}
+
+bool isPrime(int a)
+{
+    if(a==0 || a==1 || a<0)
+    {
+        return false;
+    }
+    for(int i=2; i<a/2; i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<vector<int>>primenotprime(vector<int>&arr)
+{
+    vector<int>prime;
+    vector<int>notprime;
+
+    for(auto it:arr)
+    {
+        if(isPrime(it))
+        {
+            prime.push_back(it);
+        }
+        else
+        {
+            notprime.push_back(it);
+        }
+    }
+    return {prime,notprime};
+}
+
+vector<int>summation(vector<int>&arr)
+{
+    vector<int>sumofarr(arr.size());
+    for(int i=0; i<=arr.size(); i++)
+    {
+       sumofarr=arr[0]+arr[1];
+    //    sumofarr.push_back(i);
+    }
+    return sumofarr;
+}
+
+int main()
+{
+   int n;
+   vector<int>arr(3);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product==200)
+   {
+    vector<int>arr={2,4,8,3,54,9,5,1,7,0,5,-2,};
+    vector<int>newarr=cubeofarr(arr);
+    for( auto it:newarr)
+       {
+        cout<<it<<" ";
+       }
+       cout<<"\n";
+   }
+   else if(product<200)
+   {
+    vector<int>arr={12,23,34,45,56,67,78,89,9,98,76,54,32,21};
+    vector<int>newarr=summation(arr);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+       cout<<"\n";
+   }
+   else if(product>200)
+   {
+    vector<int>arr={32,56,23,-5,223,76,95,-2,-56,90};
+    vector<vector<int>>newarr=primenotprime(arr);
+    for(auto it:newarr)
+    {
+       for( auto num:it)
+       {
+        cout<<num<<" ";
+       }
+       cout<<"\n";
+    }
+   }
+}
+=======================================================================================================================================
+7.If the product is greater than 500, call a function that returns an array of positive numbers from an array of integers. 
+If the product is less than 500, call a function that returns an array of negative numbers. 
+If the product is exactly 500, call a function that separates positive, negative, and zero values.
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<vector<int>>pnz(vector<int>&arr)
+{
+    vector<int>positive;
+    vector<int>negative;
+    vector<int>zero;
+    for(auto it:arr)
+    {
+        if(it>0)
+        {
+            positive.push_back(it);
+        }
+        else if(it<0)
+        {
+            negative.push_back(it);
+        }
+        else if(it==0){
+            zero.push_back(it);
+        }
+    }
+    return {positive,negative,zero};
+}
+
+vector<int>negativeofarr(vector<int>&arr)
+{
+    vector<int>negativearr;
+    for(auto it:arr)
+    {
+        if(it<0)
+        {
+            negativearr.push_back(it);
+        }
+    }
+    return negativearr;
+}
+
+vector<int>positiveofarr(vector<int>&arr)
+{
+    vector<int>positivearr;
+    for(auto it:arr)
+    {
+        if(it>0)
+        {
+            positivearr.push_back(it);
+        }
+    }
+    return positivearr;
+}
+
+
+int main()
+{
+   int n;
+   vector<int>arr(3);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product==500)
+   {
+    vector<int>arr={2,-4,8,-3,54,-9,0,1,7,0,5,-2,-50,56,0};
+    vector<vector<int>>newarr=pnz(arr);
+    for( auto vect:newarr)
+       {
+        for(auto num:vect)
+        {
+            cout<<num<<" ";
+        }
+        cout<<"\n";
+       }
+   }
+   else if(product<500)
+   {
+    vector<int>arr={32,-23,-54,-56,-90,78,23,-5,223,76,95,-2,-56,90};
+    vector<int>negarr=negativeofarr(arr);
+    cout<<"Array of Negative Number : ";
+    for(auto it:negarr)
+    {
+        cout<<it<<" ";
+    }
+       cout<<"\n";
+   }
+   else if(product>500)
+   {
+    vector<int>arr={32,56,23,-5,223,76,95,-2,-56,90};
+    vector<int>newarr=positiveofarr(arr);
+    cout<<"Array of positive number : ";
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+       cout<<"\n";
+   }
+}
+=======================================================================================================================================
+10.If the product is greater than 75, call a function that finds the first occurrence of a specific string in an array. 
+If the product is less than 75, call a function that finds the last occurrence of a specific string. 
+If the product is exactly 75, call a function that counts the number of occurrences of a specific string.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int countofoccu(vector<string>&arr,string &key)
+{
+    int count=0;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int lastocc(vector<string>&arr, string &key)
+{
+    int lindex=-1;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key){
+            lindex=i;
+        }
+    }
+    return lindex;
+}
+int firstocc(vector<string>&arr, string &key)
+{
+    int index=-1;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key){
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+
+int main()
+{
+   int n;
+   vector<int>arr(3);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product==75)
+   {
+    vector<string>arr={"Dog","Dog","Ram","Dog","Vivek","Regex","Dog","Ravi","Dog","Cat"};
+    string key="Dog";
+    cout<<"The counts of occurences is : "<<countofoccu(arr,key);
+       
+   }
+   else if(product<75)
+   {
+    vector<string>arr={"Shubham","Apple","Ram","Neha","Shubham","Regex","Shubham","Ravi","Shubham","Cat"};
+    string key="Shubham";
+    cout<<"The Last occurence of the key is : "<<lastocc(arr,key);
+   }
+   else if(product>75)
+   {
+    vector<string>arr={"Shubham","Ram","Neha","New","Regex","New","Ravi","Dog","New"};
+    string key="New";
+    cout<<"The First occurence of key is : "<<firstocc(arr,key);
+    
+   }
+}
+=======================================================================================================================================
+13.If the product is greater than 150, call a function that counts the number of even numbers in an array. 
+If the product is less than 150, call a function that counts the number of odd numbers. 
+If the product is exactly 150, call a function that counts the number of prime numbers.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPrime(int a)
+{
+    if(a==0 || a==1 ||a<0)
+    {
+        return false;
+    }
+    for(int i =2;i<=a/2; i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int countofprime(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(isPrime(it))
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofeven(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofodd(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2!=0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int firstocc(vector<string>&arr, string &key)
+{
+    int index=-1;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key){
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+int main()
+{
+   int n;
+   vector<int>arr(3);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product>150)
+   {
+    vector<int>arr={1,2,3,4,5,6,7,8,9,56,34,23,43,13,68};
+    cout<<"The counts of Even Number is : "<<countofeven(arr);
+       
+   }
+   else if(product<150)
+   {
+    vector<int>arr={1,2,3,4,5,6,7,8,9,56,34,23,43,13,68};
+    cout<<"The counts of Odd Number is : "<<countofodd(arr);
+   }
+   else 
+   {
+    vector<int>arr={3,1,12,5,34,17,-17,22,24,23,0};
+    cout<<"The counts of Prime Number is : "<<countofprime(arr);
+   }
+}
+
+
+=======================================================================================================================================
+8.If the average is greater than 35, call a function that counts the number of even numbers in an array. 
+If the average is less than 35, call a function that counts the number of odd numbers in an array. 
+If the average is exactly 35, call a function that separates even and odd numbers.
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>>evenodd(vector<int>&arr)
+{
+    vector<int>even;
+    vector<int>odd;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            even.push_back(it);
+        }
+        else
+        {
+            odd.push_back(it);
+        }
+    }
+    return {even,odd};
+}
+
+int countofeven(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofodd(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2!=0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int firstocc(vector<string>&arr, string &key)
+{
+    int index=-1;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key){
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+int main()
+{
+   int n;
+   vector<float>arr(3);
+   float sum=0.0,avg=0.0;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    sum+=it;
+    avg=sum/arr.size();
+   }
+   if(avg>35)
+   {
+    vector<int>arr={12,23,-34,45,56,-67,78,798,-43,54,75,24,-78};
+    cout<<"The counts of Even Number is : "<<countofeven(arr);
+       
+   }
+   else if(avg<35)
+   {
+    vector<int>arr={12,23,-34,45,56,-67,78,798,-43,54,75,24,-78};
+    cout<<"The counts of Odd Number is : "<<countofodd(arr);
+   }
+   else 
+   {
+    vector<int>arr={12,23,-34,45,56,-67,78,798,-43,54,75,24,-78,0,43,-564,23,100,-65,-682,0};
+    vector<vector<int>>evenoddarr=evenodd(arr);
+        for(auto it:evenoddarr)
+        {
+            for(auto num:it)
+            {
+                cout<<num<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+}
+=======================================================================================================================================
+19.If the product is greater than 120, call a function that counts the number of even numbers in an array. 
+If the product is less than 120, call a function that counts the number of odd numbers. 
+If the product is exactly 120, call a function that counts the number of numbers divisible by 3.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int countofdivisiblebythree(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%3==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofeven(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofodd(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it%2!=0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int firstocc(vector<string>&arr, string &key)
+{
+    int index=-1;
+    for(int i=0;i<=arr.size();i++)
+    {
+        if(arr[i]==key){
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+int main()
+{
+   int n;
+   vector<int>arr(5);
+   int product=1;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product>120)
+   {
+    vector<int>arr={1,2,3,4,5,6,7,8,9,56,34,23,43,13,68};
+    cout<<"The counts of Even Number is : "<<countofeven(arr);
+       
+   }
+   else if(product<120)
+   {
+    vector<int>arr={1,2,3,4,5,6,7,8,9,56,34,23,43,13,68};
+    cout<<"The counts of Odd Number is : "<<countofodd(arr);
+   }
+   else 
+   {
+    vector<int>arr={3,1,12,5,34,17,-17,22,24,23};
+    cout<<"count of Number which are Divisibile by 3 is : "<<countofdivisiblebythree(arr);
+   }
+}
+=======================================================================================================================================
+14.If the average is greater than 50, call a function that returns an array of even numbers from an array of integers. 
+If the average is less than 50, call a function that returns an array of odd numbers. 
+If the average is exactly 50, call a function that returns an array of prime numbers.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(int a)
+{
+    if(a==0 || a==1 ||a<0){
+        return false;
+    }
+    for(int  i=2; i<=a/2; i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+vector<int>prime(vector<int>&arr)
+{
+    vector<int>primearr;
+    for(auto it: arr)
+    {
+        if(isPrime(it))
+        {
+            primearr.push_back(it);
+        }
+    }
+    return primearr;
+}
+
+vector<int>even(vector<int>&arr)
+{
+    vector<int>evenarr;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            evenarr.push_back(it);
+        }
+    }
+    return evenarr;
+}
+vector<int>odd(vector<int>&arr)
+{
+    vector<int>oddarr;
+    for(auto it:arr)
+    {
+        if(it%2!=0)
+        {
+            oddarr.push_back(it);
+        }
+    }
+    return oddarr;
+}
+
+
+int main()
+{
+   int n;
+   vector<float>arr(3);
+   float sum=0.0,avg=0.0;
+   cout<<"Enter the Number : ";
+   for(auto &it: arr)
+   {    
+    cin>>it;
+   } 
+   for(auto it:arr)
+   {
+    sum+=it;
+    avg=sum/arr.size();
+   }
+   if(avg>50)
+   {
+    vector<int>arr={12,23,-34,45,56,-67,78,798,-43,54,75,24,-78,23,34,45,78,46,-8,65,-78,90,0,-56};
+    vector<int>newarr=even(arr);
+    cout<<"Array of Even Number : ";
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+       
+   }
+   else if(avg<50)
+   {
+    vector<int>arr={12,23,-34,45,56,-67,78,798,-43,54,75,24,-78};
+    vector<int>newarr=odd(arr);
+    cout<<"Array of Odd Number : ";
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={3,4,5,6,7,12,17,23,67};
+    vector<int>newarr=prime(arr);
+    cout<<"Array of Prime Number : ";
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+3.If the sum is greater than 150, call a function that returns an array of multiples of 2 from the original array. 
+If the sum is less than 150, call a function that returns an array of multiples of 3. 
+If the sum is exactly 150, call a function that returns an array of multiples of 5.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>multiplesOf2(vector<int>&arr)
+{
+    vector<int>multipleoftwo;
+    for(auto it: arr)
+    {
+        if(it%2==0)
+        {
+            multipleoftwo.push_back(it);
+        }
+    }
+    return multipleoftwo;
+}
+
+vector<int>multiplesOf3(vector<int>&arr)
+{
+    vector<int>multipleofthree;
+    for(auto it: arr)
+    {
+        if(it%3==0)
+        {
+            multipleofthree.push_back(it);
+        }
+    }
+    return multipleofthree;
+}
+
+vector<int>multiplesOf5(vector<int>&arr)
+{
+    vector<int>multipleoffive;
+    for(auto it: arr)
+    {
+        if(it%5==0)
+        {
+            multipleoffive.push_back(it);
+        }
+    }
+    return multipleoffive;
+}
+
+int main()
+{
+   vector<int>arr(3);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum>150)
+   {
+    vector<int>arr={23,34,46,-67,34,23,-67,-45,90,98};
+    vector<int>newarr=multiplesOf2(arr);
+    cout<<"The array of Multiple of 2 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else if(sum<150)
+   {
+    vector<int>arr={12,34,56,78,90,99,24,-24,-56,-33};
+    vector<int>newarr=multiplesOf3(arr);
+    cout<<"The array of Multiple of 3 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={95,-34,200,-67,-520,-23,190,-50,0,-98};
+    vector<int>newarr=multiplesOf5(arr);
+    cout<<"The array of Multiple of 5 is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+2.If the average is greater than 25, call a function that finds the sum of all positive numbers in an array. 
+If the average is less than 25, call a function that finds the sum of all negative numbers in an array. 
+If the average is exactly 25, call a function that returns the count of zero elements in an array.
+
+#include<bits/stdc++.h>
+using namespace std;
+int countZeros(vector<int>&arr)
+{
+    int count=0;
+    for(auto it:arr)
+    {
+        if(it==0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int sumNegativeNumbers(vector<int>&arr)
+{
+    int sumofnegative=0;
+    for(auto it:arr)
+    {
+        if(it<0)
+        {
+            sumofnegative+=it;
+        }
+    }
+    return sumofnegative;
+}
+int sumPositiveNumbers(vector<int>&arr)
+{
+    int sumofpositive=0;
+    for(auto it:arr)
+    {
+        if(it>0)
+        {
+            sumofpositive+=it;
+        }
+    }
+    return sumofpositive;
+}
+
+int main()
+{
+   vector<float>arr(5);
+   float sum=0.0,avg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avg=sum/arr.size();
+   }
+   if(avg>25)
+   {
+    vector<int>arr={23,34,46,-67,34,23,-67,-45,90,98};
+    cout<<"The sum of Positive Numbers is : "<<sumPositiveNumbers(arr);
+   }
+   else if(avg<25)
+   {
+    vector<int>arr={23,-34,46,-67,34,-23,-67,-45,90,-98};
+    cout<<"The sum of Negative Numbers is : "<<sumNegativeNumbers(arr);
+   }
+   else 
+   {
+    vector<int>arr={23,0,-34,0,-67,0,-23,0,-45,0,-98,0,0,0,899};
+    cout<<"The Count of Zero in The Array is : "<<countZeros(arr);
+   }
+}
+=======================================================================================================================================
+20.If the average is greater than 20, call a function that returns an array of positive integers. 
+If the average is less than 20, call a function that returns an array of negative integers. 
+If the average is exactly 20, call a function that returns an array of zero values.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int>positive(vector<int>&arr)
+{
+    vector<int>positivearr;
+    for(auto it: arr)
+    {
+        if(it>0)
+        {
+            positivearr.push_back(it);
+        }
+    }
+    return positivearr;
+}
+
+vector<int>negative(vector<int>&arr)
+{
+    vector<int>negativearr;
+    for(auto it: arr)
+    {
+        if(it<0)
+        {
+            negativearr.push_back(it);
+        }
+    }
+    return negativearr;
+}
+
+vector<int>zero(vector<int>&arr)
+{
+    vector<int>zeroarr;
+    for(auto it: arr)
+    {
+        if(it==0)
+        {
+            zeroarr.push_back(it);
+        }
+    }
+    return zeroarr;
+}
+
+int main()
+{
+   vector<int>arr(3);
+   int sum=0;
+   float avrg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avrg=sum/arr.size();
+   }
+   if(avrg>20)
+   {
+    vector<int>arr={23,-34,46,-67,-34,23,-67,-45,90,98};
+    vector<int>newarr=positive(arr);
+    cout<<"The array of Positive Numbers is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else if(avrg<20)
+   {
+    vector<int>arr={-12,34,-56,78,90,99,-24,-24,-56,-33};
+    vector<int>newarr=negative(arr);
+    cout<<"The array of Negative Numbers is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={0,-34,0,-67,0,-23,0,-50,0,-98};
+    vector<int>newarr=zero(arr);
+    cout<<"The array of zero is : ";
+    for(auto it :newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+12.If the sum is greater than 90, call a function that finds the sum of all prime numbers in an array. 
+If the sum is less than 90, call a function that finds the sum of all non-prime numbers. 
+If the sum is exactly 90, call a function that finds the sum of all multiples of 2.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(int a)
+{
+    if(a==0 || a==1 ||a<0)
+    {
+        return false;
+    }
+    for(int i=2;i<=a/2;i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int multipleof2(vector<int>&arr)
+{
+    int sumofmultipleof2=0;
+    for(auto it: arr)
+    {
+        if(it%2==0)
+        {
+            sumofmultipleof2+=it;
+        }
+    }
+    return sumofmultipleof2;
+}
+
+int prime(vector<int>&arr)
+{
+    int sumofprime=0;
+    for(auto it:arr)
+    {
+        if(isPrime(it))
+        {
+            sumofprime+=it;
+        }
+    }
+    return sumofprime;
+}
+int notprime(vector<int>&arr)
+{
+    int sumofnotprime=0;
+    for(auto it:arr)
+    {
+        if(!isPrime(it))
+        {
+            sumofnotprime+=it;
+        }
+    }
+    return sumofnotprime;
+}
+
+int main()
+{
+   vector<int>arr(3);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum>90)
+   {
+    vector<int>arr={3,7,11,12,23,0,98,76,45};
+    cout<<"The sum of Prime Numbers is : "<<prime(arr);
+   }
+   else if(sum<90)
+   {
+    vector<int>arr={1,22,23,18,17,15,90,0,17};
+    cout<<"The sum of Not Prime Numbers is : "<<notprime(arr);
+   }
+   else 
+   {
+    vector<int>arr={12,23,34,45,56,67,78,89,90,22};
+    cout<<"The sum of Multiple of 2 Number's is : "<<multipleof2(arr);
+   }
+}
+
+=======================================================================================================================================
+9.If the sum is greater than 60, call a function that returns an array of numbers greater than 10 from an array of integers. 
+If the sum is less than 60, call a function that returns an array of numbers less than 10. 
+If the sum is exactly 60, call a function that returns an array of numbers equal to 10.
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>greater10(vector<int>&arr)
+{
+    vector<int>greaterthan10;
+    for(auto it:arr)
+    {
+        if(it>10)
+        {
+            greaterthan10.push_back(it);
+        }
+    }
+    return greaterthan10;
+}
+
+vector<int>less10(vector<int>&arr)
+{
+    vector<int>lessthan10;
+    for(auto it:arr)
+    {
+        if(it<10)
+        {
+            lessthan10.push_back(it);
+        }
+    }
+    return lessthan10;
+}
+vector<int>equal10(vector<int>&arr)
+{
+    vector<int>equalto10;
+    for(auto it:arr)
+    {
+        if(it==10)
+        {
+            equalto10.push_back(it);
+        }
+    }
+    return equalto10;
+}
+
+int main()
+{
+   vector<int>arr(3);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum>60)
+   {
+    vector<int>arr={3,7,11,10,12,23,0,98,76,-12,90,45,29,79,6,1,0,45};
+    vector<int>newarr=greater10(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+   else if(sum<60)
+   {
+    vector<int>arr={1,22,23,18,17,15,4,-19,9,3,89,45,-89,90,0,17};
+    vector<int>newarr=less10(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={12,10,23,34,10,45,56,10,67,78,-10,89,90,10,22};
+    vector<int>newarr=equal10(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+18.If the sum is greater than 180, call a function that returns an array of numbers greater than 50. 
+If the sum is less than 180, call a function that returns an array of numbers less than 50. 
+If the sum is exactly 180, call a function that returns an array of numbers equal to 50.
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>greater50(vector<int>&arr)
+{
+    vector<int>greaterthan50;
+    for(auto it:arr)
+    {
+        if(it>50)
+        {
+            greaterthan50.push_back(it);
+        }
+    }
+    return greaterthan50;
+}
+
+vector<int>less50(vector<int>&arr)
+{
+    vector<int>lessthan50;
+    for(auto it:arr)
+    {
+        if(it<50)
+        {
+            lessthan50.push_back(it);
+        }
+    }
+    return lessthan50;
+}
+vector<int>equal50(vector<int>&arr)
+{
+    vector<int>equalto50;
+    for(auto it:arr)
+    {
+        if(it==50)
+        {
+            equalto50.push_back(it);
+        }
+    }
+    return equalto50;
+}
+
+int main()
+{
+   vector<int>arr(6);
+   int sum=0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+   }
+   if(sum>180)
+   {
+    vector<int>arr={29,89,56,35,80,74,10,0,98,76,-12,-90,45,29,79,6,1,0,45};
+    vector<int>newarr=greater50(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+   else if(sum<180)
+   {
+    vector<int>arr={1,86,23,118,66,15,4,-19,56,3,89,12,-89,90,0,-86};
+    vector<int>newarr=less50(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+   else 
+   {
+    vector<int>arr={12,50,23,34,50,45,56,10,67,50,-10,89,50,10,50};
+    vector<int>newarr=equal50(arr);
+    for(auto num:newarr)
+    {
+        cout<<num<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+17.If the average is greater than 10, call a function that finds the maximum value in an array of floats. 
+If the average is less than 10, call a function that finds the minimum value. 
+If the average is exactly 10, call a function that returns the sum of all positive numbers.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+float findMaxElement(vector<float>&arr,float &max)
+{
+    for(int i=0;i<arr.size();i++)
+    {
+        if(max<arr[i])
+        {
+            max=arr[i];
+        }
+    }
+    return max;
+}
+
+float findMinElement(vector<float> &arr,float &min)
+{
+    for(int i=0; i<arr.size();i++)
+    {
+        if(min>arr[i])
+        {
+            min=arr[i];
+        }
+    }
+    return min;
+}
+
+int sumPositiveNumbers(vector<int>&arr)
+{
+    int sumofpositive=0;
+    for(auto it:arr)
+    {
+        if(it>0)
+        {
+            sumofpositive+=it;
+        }
+    }
+    return sumofpositive;
+}
+
+
+int main()
+{
+   vector<float>arr(3);
+   float sum=0.0,avrg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avrg=sum/arr.size();
+   }
+   if(avrg<10)
+   {
+    vector<float>arr={1.2,-23.23,0.5,43.90,23.21,50.20,-7.8,9.7,-0.3};
+    float min=arr[0];
+    cout<<"The Minimum Element of the array is : "<<findMinElement(arr,min);
+   }
+   else if(avrg>10)
+   {
+    vector<float>arr={23.12,34.32,4.6,-67.10,-3.4,23.0,-67.67,-4.5,0.90,9.8};
+    float max=arr[0];
+    cout<<"The Maximum element of the array is : "<<findMaxElement(arr,max);
+   }
+   
+   else 
+   {
+    vector<int>arr={50,-34,-50,-67,10,-23,35,-45,30,-98};
+    cout<<"Sum of all Positive Number is : "<<sumPositiveNumbers(arr);
+   }
+}
+=======================================================================================================================================
+5.If the average is greater than 40, call a function that finds the maximum value in an array of integers. 
+If the average is less than 40, call a function that finds the minimum value in an array of integers. 
+If the average is exactly 40, call a function that returns the sum of all even numbers in the array.
+#include<bits/stdc++.h>
+using namespace std;
+
+int findMaxElement(vector<int>&arr,int &max)
+{
+    for(int i=0;i<arr.size();i++)
+    {
+        if(max<arr[i])
+        {
+            max=arr[i];
+        }
+    }
+    return max;
+}
+
+int findMinElement(vector<int> &arr,int &min)
+{
+    for(int i=0; i<arr.size();i++)
+    {
+        if(min>arr[i])
+        {
+            min=arr[i];
+        }
+    }
+    return min;
+}
+
+int sumevenNumbers(vector<int>&arr)
+{
+    int sumofeven=0;
+    for(auto it:arr)
+    {
+        if(it%2==0)
+        {
+            sumofeven+=it;
+        }
+    }
+    return sumofeven;
+}
+
+
+int main()
+{
+   vector<float>arr(4);
+   float sum=0.0,avrg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avrg=sum/arr.size();
+   }
+   if(avrg<40)
+   {
+    vector<int>arr={12,-23,5,43,90,2,21,50,20,-78,97,-3};
+    int min=arr[0];
+    cout<<"The Minimum Element of the array is : "<<findMinElement(arr,min);
+   }
+   else if(avrg>40)
+   {
+    vector<int>arr={23,112,34,32,4,6,-67,10,34,-23,67,-77,-45,90,-98};
+    int max=arr[0];
+    cout<<"The Maximum element of the array is : "<<findMaxElement(arr,max);
+   }
+   
+   else 
+   {
+    vector<int>arr={50,57,98,23,29,19,-34,50,-67,10,-23,35,45,30,-98};
+    cout<<"Sum of all Even Number is : "<<sumevenNumbers(arr);
+   }
+}
+=======================================================================================================================================
+11.If the average is greater than 15, call a function that returns an array of integers greater than the average. 
+If the average is less than 15, call a function that returns an array of integers less than the average. 
+If the average is exactly 15, call a function that returns an array of integers equal to the average.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> greaterthan(vector<int>&arr,float &avrg)
+{
+    vector<int>greaterthanavrg;
+    for(auto it:arr)
+    {
+        if(it>avrg)
+        {
+            greaterthanavrg.push_back(it);
+        }
+    }
+    return greaterthanavrg;
+}
+
+vector<int> lessthan(vector<int> &arr,float &avrg)
+{
+    vector<int>lessthanavrg;
+    for(auto it:arr)
+    {
+        if(it<avrg)
+        {
+            lessthanavrg.push_back(it);
+        }
+    }
+    return lessthanavrg;
+}
+
+vector<int> equalto(vector<int>&arr,float &avrg)
+{
+    vector<int>equaltoavrg;
+    for(auto it:arr)
+    {
+        if(it==avrg)
+        {
+            equaltoavrg.push_back(it);
+        }
+    }
+    return equaltoavrg;
+}
+
+
+int main()
+{
+   vector<float>arr(4);
+   float sum=0.0,avrg=0.0;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    sum+=it;
+    avrg=sum/arr.size();
+   }
+   if(avrg<15)
+   {
+    vector<int>arr={20,-23,5,43,90,2,21,50,20,-78,97,-3};
+    vector<int>newarr=lessthan(arr,avrg);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+    
+   }
+   else if(avrg>15)
+   {
+    vector<int>arr={23,112,10,32,4,6,-67,10,34,-23,67,-77,-45,10,-98};
+    vector<int>newarr=greaterthan(arr,avrg);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+    
+   }
+   
+   else 
+   {
+    vector<int>arr={50,57,15,23,29,15,-34,50,-15,10,-23,15,45,30,15};
+    vector<int>newarr=equalto(arr,avrg);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+16.If the product is greater than 45, call a function that returns an array of numbers greater than the product. 
+If the product is less than 45, call a function that returns an array of numbers less than the product. 
+If the product is exactly 45, call a function that returns an array of numbers equal to the product.
+
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> greaterthan(vector<int>&arr,int &product)
+{
+    vector<int>greaterthanproduct;
+    for(auto it:arr)
+    {
+        if(it>product)
+        {
+            greaterthanproduct.push_back(it);
+        }
+    }
+    return greaterthanproduct;
+}
+
+vector<int> lessthan(vector<int> &arr,int &product)
+{
+    vector<int>lessthanproduct;
+    for(auto it:arr)
+    {
+        if(it<product)
+        {
+            lessthanproduct.push_back(it);
+        }
+    }
+    return lessthanproduct;
+}
+
+vector<int> equalto(vector<int>&arr,int &product)
+{
+    vector<int>equaltoproduct;
+    for(auto it:arr)
+    {
+        if(it==product)
+        {
+            equaltoproduct.push_back(it);
+        }
+    }
+    return equaltoproduct;
+}
+
+
+int main()
+{
+   vector<int>arr(2);
+   int product=1;
+   cout<<"Enter the Numbers : ";
+   for(auto &it:arr)
+   {
+    cin>>it;
+   }
+   for(auto it:arr)
+   {
+    product*=it;
+   }
+   if(product<45)
+   {
+    vector<int>arr={20,-23,5,43,90,2,21,50,20,-78,97,-3};
+    vector<int>newarr=lessthan(arr,product);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+    
+   }
+   else if(product>45)
+   {
+    vector<int>arr={89,112,10,90,4,6,-67,56,34,-23,67,78,120,10,98};
+    vector<int>newarr=greaterthan(arr,product);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+    
+   }
+   
+   else 
+   {
+    vector<int>arr={50,45,15,23,29,45,-34,50,-15,45,-23,15,45,30,45};
+    vector<int>newarr=equalto(arr,product);
+    for(auto it:newarr)
+    {
+        cout<<it<<" ";
+    }
+    cout<<"\n";
+   }
+}
+=======================================================================================================================================
+15.If the sum is greater than 200, call a function that counts the number of vowels in an array of strings. 
+If the sum is less than 200, call a function that counts the number of consonants. 
+If the sum is exactly 200, call a function that counts the number of words containing both vowels and consonants.
+
+#include <bits/stdc++.h>
+using namespace std;
+int countofConsonant(vector<string>&arr)
+{
+    int count=0;
+    for(auto &it:arr){
+        for(char a:it){
+        a=tolower(a);
+        if(a!='a' && a!='e' && a!='i' && a!='o' && a!='u'){
+            count++;
+        }
+        }
+    }
+    return count;
+}
+int countofVowels(vector<string>&arr)
+{
+    int count=0;
+    for(auto &it:arr){
+        for(char a:it){
+        a=tolower(a);
+        if(a=='a' ||a=='e' || a=='i' || a=='o' || a=='u'){
+            count++;
+        }
+        }
+    }
+    return count;
+}
+
+int countofWords(vector<string>&arr)
+{
+    int count=0;
+    for(auto &it:arr){
+        for(char a:it){
+        a=tolower(a);
+            if(a>='a' || a<='z')
+            {
+                count;
+            }
+        }
+            count++;
+    }
+    return count;
+}
+
+int main()
+{
+    int sum=0;
+    vector<int>arr(3);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+    }
+    if(sum>200){
+        vector<string>arr={"SHUBHAM","ravi","AJAY","prIyankA","AEioUAEo"}; 
+        cout<<"The value of vowels in given array is : "<<countofVowels(arr);
+    }
+    else if(sum<200)
+    {
+        vector<string>arr={"ShUBHAM","ravi","GaUraV","Neha","QWrvGTH"}; 
+        cout<<"The value of consonant in given array is : "<<countofConsonant(arr);
+    }
+    else{
+        vector<string>arr={"ShUBHAM","ravi","Nitya","GaUraV","Neha","QWrvGTH"}; 
+        cout<<"The value of Words in given array is : "<<countofWords(arr);
+    }
+}
+======================================================================================================================================
+6.If the sum is greater than 80, call a function that counts the number of vowels in an array of strings. 
+If the sum is less than 80, call a function that counts the number of consonants in an array of strings. 
+If the sum is exactly 80, call a function that returns the length of each string in an array.
+
+#include <bits/stdc++.h>
+using namespace std;
+int countofConsonant(vector<string>&arr)
+{
+    int count=0;
+    for(auto &it:arr){
+        for(char a:it){
+        a=tolower(a);
+        if(a!='a' && a!='e' && a!='i' && a!='o' && a!='u'){
+            count++;
+        }
+        }
+    }
+    return count;
+}
+int countofVowels(vector<string>&arr)
+{
+    int count=0;
+    for(auto &it:arr){
+        for(char a:it){
+        a=tolower(a);
+        if(a=='a' ||a=='e' || a=='i' || a=='o' || a=='u'){
+            count++;
+        }
+        }
+    }
+    return count;
+}
+
+vector<int> lengtharr(vector<string>&arr)
+{
+    vector<int>newarr;
+    for(auto it:arr)
+    {
+        newarr.push_back(it.length());
+    }
+    return newarr;
+}
+
+int main()
+{
+    int sum=0;
+    vector<int>arr(2);
+    cout<<"Enter the numbers : ";
+    for(auto &it:arr)
+    {
+        cin>>it;
+    }
+    for(auto it:arr){
+        sum=sum+it;
+    }
+    if(sum>80){
+        vector<string>arr={"SHUBHAM","ravi","AJAY","prIyankA","AEioUAEo"}; 
+        cout<<"The value of vowels in given array is : "<<countofVowels(arr);
+    }
+    else if(sum<80)
+    {
+        vector<string>arr={"ShUBHAM","ravi","GaUraV","Neha","QWrvGTH"}; 
+        cout<<"The value of consonant in given array is : "<<countofConsonant(arr);
+    }
+    else
+    {
+        vector<string>arr={"Shubham","Ravi","Neha","Ram","Vishal"};
+        vector<int>newarr=lengtharr(arr);
+        for(auto it : newarr)
+        {
+            cout<<it<<" ";
+        }
+    }
+}
+=======================================================================================================================================
