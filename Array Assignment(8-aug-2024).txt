@@ -1,0 +1,1842 @@
+1. If the product of the prices of 25 items is greater than 50000, call a function that separates prices into multiples of 10 and non-multiples. 
+If the product is less than 50000, call a function that finds the first occurrence of a price ending in 99. 
+If the product is exactly 50000, call a function that finds the last occurrence of a price ending in 00.
+
+#include <bits/stdc++.h>
+using namespace std;
+bool check99(int n)
+{
+    if (n % 10 != 9)
+        return false;
+    int count = 0, i = 0;
+    while (i < 2)
+    {
+        if (n % 10 == 9)
+        {
+            n = n / 10;
+            count++;
+        }
+        i++;
+    }
+    if (count == 2)
+        return true;
+    return false;
+}
+
+bool check00(int n)
+{
+
+    if (n % 10 != 0)
+        return false;
+    int count = 0, i = 0;
+    while (i < 2)
+    {
+        if (n % 10 == 0)
+        {
+            n = n / 10;
+            count++;
+        }
+        i++;
+    }
+    if (count == 2)
+        return true;
+    return false;
+}
+
+vector<vector<int>> multiplesof10_not10(vector<int> &arr)
+{
+    vector<int> multiplesof10;
+    vector<int> non_multiplesof10;
+    for (auto it : arr)
+    {
+        if (it % 10 != 0)
+        {
+            non_multiplesof10.push_back(it);
+        }
+        else
+        {
+            multiplesof10.push_back(it);
+        }
+    }
+    return {multiplesof10, non_multiplesof10};
+}
+
+int firstoccurenceof99(vector<int> &arr)
+{
+
+    int i = 0, index = -1;
+    for (auto it : arr)
+    {
+        if (check99(it))
+        {
+            index = i;
+            return index;
+        }
+        i++;
+    }
+    return -1;
+}
+
+int lastoccurenceof00(vector<int> &arr)
+{
+    int i = 0, index = -1;
+    for (auto it : arr)
+    {
+        if (check00(it))
+        {
+            index = i;
+        }
+        i++;
+    }
+    return index;
+}
+
+int main()
+{
+    int n = 25;
+    int product = 1;
+    cout << "Enter the Prices : ";
+    vector<int> arr(n);
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+
+    for (auto it : arr)
+    {
+        product *= it;
+    }
+    if (product > 50000)
+    {
+        vector<int>arr={1,2,3,10,78,30,890,444,270,89,1099,862,800,1000};
+        vector<vector<int>> res = multiplesof10_not10(arr);
+        for (auto v1 : res)
+        {
+            for (auto it : v1)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 50000)
+    {
+        vector<int> arr = {789, 169, 99, 199, 34, 890, 121, 199, 999, 1009};
+        cout << "First Occurence is: " << firstoccurenceof99(arr) << "\n";
+    }
+    else
+    {
+        vector<int> arr = {89,34,56,1300,56,10,1990,1009,101,100,109};
+        cout << "Last Occurence is: " << lastoccurenceof00(arr) << "\n";
+    }
+}
+
+==========================================================================================================================================================
+2. If the average quantity sold per day over 30 days is greater than 100, call a function that counts the number of days with sales above 150. 
+If the average is less than 100, call a function that finds the first occurrence of a day with sales below 50. 
+If the average is exactly 100, call a function that calculates the difference between the highest and lowest sales.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int difference(vector<int>&arr,int &max, int &min)
+{
+    for(auto num:arr)
+    {
+        if(num>max)
+        {
+            max=num;
+        }
+        if(num<min)
+        {
+            min=num;
+        }
+    }
+    return (max-min);
+}
+
+int firstOccurence(vector<int>&arr)
+{
+    int index=-1;
+    for(int i=0;i<arr.size();i++)
+    {
+        if(arr[i]<50)
+        {
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+int daysabove150(vector<int> &arr)
+{
+    int count = 0;
+    for (auto sales : arr)
+    {
+        if (sales > 150)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int days = 30;
+    vector<int> sales(days);
+    float totalsales = 0.0, averagesales = 0.0;
+    for (int i = 0; i < days; i++)
+    {
+        cout << "Enter the quantity that sold on day " << (i + 1) << " : ";
+        cin >> sales[i];
+        totalsales += sales[i];
+        averagesales = totalsales / days;
+    }
+    cout << "The average of sales is : " << averagesales << "\n";
+    if (averagesales > 100)
+    {
+        vector<int> arr = {156, 109, 298, 102, 234, 122, 211, 243, 542, 12, 2, 123, 344, 17, 129, 111, 0, 125, 23, 876, 233, 124, 126, 1, 24, 235, 156, 352, 11, 177};
+        cout<<"Total number of days with sales above 150 is : "<<daysabove150(arr);
+    }
+    else if (averagesales < 100)
+    {
+        vector<int> arr = {56, 109, 29, 102, 27, 122, 21, 243, 542, 12, 2, 123, 344, 17, 109, 11, 0, 125, 23, 871, 233, 124, 126, 1, 24, 235, 156, 352, 11, 177};
+        cout<<"First occurence of a day with sales below 50 is : "<<firstOccurence(arr);
+    }
+    else
+    {
+        vector<int> arr = {56, 109, 29, 102, 27, 122, 21, 243, 542, 12, 2, 123, 344, 17, 109, 11, 20, 125, 23, 871, 233, 124, 126, 1, 24, 235, 156, 352, 11, 177};
+        int max=arr[0],min=arr[0];
+        cout<<"The difference between highest and lowest is : "<<difference(arr,max,min);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+3. If the sum of 15 customer ratings is greater than 75, call a function that counts the number of ratings that are exactly 5 stars. 
+If the sum is less than 75, call a function that finds the number of occurrences of a rating below 3 stars. 
+If the sum is exactly 75, call a function that returns an array where each rating is incremented by 1.
+
+#include <bits/stdc++.h>
+using namespace std;
+int countofOccurences(vector<int>&arr,int &rating)
+{
+    int count=0;
+    for(int i=0;i<arr.size();i++)
+    {
+        if(arr[i]==rating)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int occurence(vector<int>&arr)
+{
+    int count=0;
+    for(auto rating:arr)
+    {
+        if(rating<3)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+vector<int>incrementby1(vector<int>&arr)
+{
+    vector<int>newarr(arr.size());
+    for(int i=0;i<arr.size();i++)
+    {
+        newarr[i]=arr[i]+1;
+    }    
+    return newarr;
+}
+
+int main()
+{
+    int n = 15;
+    int sum = 0;
+    cout << "Enter the ratings(Rating Should be between 1 to 7) : \n";
+    vector<int> arr(n);
+    for (int i=0 ;i<n;i++)
+    {
+        cin >> arr[i];
+        if (arr[i] < 1 || arr[i] > 7)
+        {
+            cout << "Invalid rating. Please enter a rating between 1 and 7: ";
+            cin >> arr[i];
+        }
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+    } 
+    if (sum > 75)
+    {
+        cout<<"Sum is Greater than 75.\n";
+        vector<int>arr={2,3,7,5,9,5,2,5,2,6,5,3,6,4,2,5,6,9,5,6,7,8,5,6,8,4,2,6,7,9,4,8};
+        int rating=5;
+        cout<<"Count of the rating that are exactly 5 stars : "<<countofOccurences(arr,rating)<<"\n";
+    }
+    else if (sum < 75)
+    {
+        cout << "Sum is Less than 75.\n";
+        vector<int>arr={1,4,2,5,2,1,3,1,4,1,3,5,1,3,5,6,8,6,4,2,2,3};
+        cout<<"Number of occurences of a rating below three stars : "<<occurence(arr)<<"\n";
+    }
+    else
+    {
+        cout << "Sum is Equal to 75.\n";
+        vector<int>arr={0,1,2,3,4,5,5,7,8,9};
+        vector<int>newarr=incrementby1(arr);
+        cout<<"New vector which is incremented by 1 : ";
+        for(auto it :newarr)
+        {
+            cout<<it<<" ";
+        }
+    }
+    return 0;
+}
+
+==========================================================================================================================================================
+4. If the product of 10 product dimensions (length × width × height) is greater than 100000, call a function that separates dimensions into even and odd values. 
+If the product is less than 100000, call a function that finds the first occurrence of a dimension below 10. 
+If the product is exactly 100000, call a function that finds the last occurrence of a dimension above 50.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+vector<vector<int>> even_odd(vector<int> &arr)
+{
+    vector<int> even;
+    vector<int> odd;
+    for (auto it : arr)
+    {
+        if (it % 2 == 0)
+        {
+            even.push_back(it);
+        }
+        else if (it % 2 != 0)
+        {
+            odd.push_back(it);
+        }
+    }
+    return {even, odd};
+}
+
+int main()
+{
+    int n = 10;
+    long long product = 1;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        int length, width, height;
+        cout << "Item " << (i + 1) << " - Length, Width and Height : ";
+        cin >> length >> width >> height;
+        arr[i] = length * width * height;
+        product *= arr[i];
+    }
+    cout << "The product of dimensions is  : " << product << "\n";
+    if (product > 100000)
+    {
+        vector<int> arr = {12, 34, 23, 35, 46, 57, 66, 79, 75, 53, 32, 88, 54, 21, 97};
+        vector<vector<int>> newarr = even_odd(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 100000)
+    {
+        vector<int> arr = {18, 26, 8, 47, 9, 8, 10, 59, 8, 17, 8, 67, 8, 5, 42, 17, 24};
+        int key;
+        cout << "Enter a key of a Dimension to find the first occurence : ";
+        cin >> key;
+        if (key < 10)
+        {
+            cout << "First Occurence is : " << firstOccurence(arr, key);
+        }
+        else
+        {
+            cout << "Enter the key below 10 to find first occurence.";
+        }
+    }
+    else
+    {
+        vector<int> arr = {27, 68, 53, 56, 44, 98, 31, 56, 78, 12, 31, 7, 56, 23, 56, 56, 23, 87};
+        int key;
+        cout << "Enter a key of a Dimension to find the last occurence : ";
+        cin >> key;
+        if (key > 50)
+        {
+            cout << "Last occurence is : " << lastOccurence(arr, key);
+        }
+        else
+        {
+            cout << "Enter the key above 50 to find last occurence.";
+        }
+    }
+    return 0;
+}
+==========================================================================================================================================================
+5. If the average cost of 20 products is greater than 1500, call a function that counts the number of products costing more than 2000. 
+If the average cost is less than 1500, call a function that finds the first occurrence of a product costing less than 1000. 
+If the average cost is exactly 1500, call a function that calculates the product of the digits of the costs.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int productofDigit(vector<int> &arr,int &cost)
+{
+    int product = 1;
+    if (cost == 0)
+    {
+        return 0;
+    }
+    while (cost > 0)
+    {
+        int digit = cost % 10;
+        product *= digit;
+        cost /= 10;
+    }
+    return product;
+}
+
+int firstOccurence(vector<int> &arr)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < 1000)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int costabove2000(vector<int> &arr)
+{
+    int count = 0;
+    for (auto cost : arr)
+    {
+        if (cost > 2000)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 20;
+    vector<int> arr(n);
+    float sum = 0.0, avrg = 0.0;
+    cout << "Enter the cost of products : ";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+        avrg = sum / n;
+    }
+    cout << "The average of cost is : " << avrg << "\n";
+    if (avrg > 1500)
+    {
+        vector<int> arr = {1560, 1099, 2980, 2102, 1234, 3122, 1210, 2439, 1542, 1299, 1320, 1230, 2350, 1799, 1299, 1111, 1009, 1254, 2390, 1561};
+        cout << "Total number of products with cost above 2000 is : " << costabove2000(arr);
+    }
+    else if (avrg < 1500)
+    {
+        vector<int> arr = {1560, 1099, 1229, 1020, 1027, 622, 999, 1243, 540, 1200, 299, 1230, 350, 1700, 1009, 810, 1000, 995, 690, 890};
+        cout << "First occurence of a product with cost below 1000 is : " << firstOccurence(arr);
+    }
+    else
+    {
+        vector<int> arr = {56, 109, 29, 102, 27, 122, 21, 243, 542, 12, 2, 123, 344, 17, 109, 11, 20, 125, 23, 871, 233, 124, 126, 1, 24, 235, 156, 352, 11, 177};
+        int cost;
+        cout<<"Enter the cost to calculate the product of digits : ";
+        cin>>cost; 
+        cout << "The product of digits of cost is : " << productofDigit(arr,cost);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+6. If the sum of 12 quantities ordered is greater than 6000, call a function that counts the total number of odd quantities ordered. 
+If the sum is less than 6000, call a function that finds the number of occurrences of a specific quantity ordered. 
+If the sum is exactly 6000, call a function that returns an array of quantities where each element is halved.
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<float> halfofeachElement(vector<int> &arr)
+{
+    vector<float> half;
+    for (auto it : arr)
+    {
+        half.push_back(it / 2.0);
+    }
+    return half;
+}
+
+int occurence(vector<int> &arr, int &key)
+{
+    int count = 0;
+    for (auto it : arr)
+    {
+        if (it == key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int countofOdd(vector<int> &arr)
+{
+    int count = 0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (i % 2 != 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 12;
+    long long sum = 0;
+    vector<int> arr(n);
+    cout << "Enter the value of quantities : \n";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+    }
+    cout << "The sum of ordered quantities is  : " << sum << "\n";
+    if (sum > 6000)
+    {
+        vector<int> arr = {12, 23, 34, 45, 56, 67, 78, 89, 90, 13, 25, 36, 47, 58, 68, 89, 76, 54, 59};
+        cout << "Total number of odd number is : " << countofOdd(arr);
+    }
+    else if (sum < 6000)
+    {
+        vector<int> arr = {12, 44, 34, 44, 44, 67, 78, 44, 90, 44, 25, 44, 47, 58, 44, 89, 44, 54, 24};
+        int key;
+        cout << "Enter the key to find the number of occurences : ";
+        cin >> key;
+        cout << "Total number of occurences of a specific quantity is : " << occurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 44, 34, 44, 44, 67, 78, 44, 90, 44, 25, 44, 47, 58, 44, 89, 44, 54, 24};
+        vector<float> newarr = halfofeachElement(arr);
+        for (auto it : newarr)
+        {
+            cout << it << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+==========================================================================================================================================================
+7. If the product of 8 quantities of different colors is greater than 2000, call a function that separates quantities into high and low values. 
+If the product is less than 2000, call a function that finds the first occurrence of a quantity of a specific color. 
+If the product is exactly 2000, call a function that finds the last occurrence of a quantity of a specific color.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+vector<vector<int>> high_low(vector<int> &arr)
+{
+    vector<int> high;
+    vector<int> low;
+    for (auto it : arr)
+    {
+        if (it > 100)
+        {
+            high.push_back(it);
+        }
+        else if (it < 100)
+        {
+            low.push_back(it);
+        }
+    }
+    return {high, low};
+}
+
+int main()
+{
+    int n = 8;
+    long long product = 1;
+    vector<int> arr(n);
+    cout << "Enter the quantity : ";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        product *= it;
+    }
+    cout << "The product is  : " << product << "\n";
+    if (product > 2000)
+    {
+        vector<int> arr = {12, 23, 120, 30, 45, 321, 80, 50, 300, 70, 100, 434, 40, 136, 50, 59, 263, 37, 290};
+        vector<vector<int>> newarr = high_low(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 2000)
+    {
+        vector<int> arr = {23, 90, 9, 11, 56, 9, 50, 9, 70, 10, 44, 40, 9, 50, 9, 11, 9, 90};
+        int key;
+        cout << "Enter a key of a specific color to find the first occurence : ";
+        cin >> key;
+        cout<<"First Occurence is : "<<firstOccurence(arr,key);
+    }
+    else
+    {
+        vector<int> arr = {23, 6, 20, 11, 6, 80, 50, 6, 70, 6, 117, 6, 36, 50, 6, 117, 6, 90};
+        int key;
+        cout << "Enter a key of a specific color to find the last occurence : ";
+        cin >> key;
+        cout<<"Last occurence is : "<<lastOccurence(arr,key);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+8. If the average length of 10 items is greater than 15 cm, call a function that counts the number of items with lengths over 20 cm. 
+If the average length is less than 15 cm, call a function that finds the first occurrence of an item with a length below 10 cm. 
+If the average length is exactly 15 cm, call a function that calculates the sum of the lengths.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumofLengths(vector<int>&arr)
+{
+    int sumoflength=0;
+    for(auto length:arr)
+    {
+        sumoflength+=length;
+    }
+    return sumoflength;
+}
+
+int firstOccurence(vector<int> &arr)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < 10)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int count(vector<int> &arr)
+{
+    int count = 0;
+    for (auto length : arr)
+    {
+        if (length > 20)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 10;
+    float avrg = 0.0, sum = 0.0;
+    vector<float> arr(n);
+    cout << "Enter the lengths : ";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+        avrg = sum / arr.size();
+    }
+    cout << "The average of length is  : " << avrg << "\n";
+    if (avrg > 15)
+    {
+        vector<int> arr = {18,23,22,37,17,57,3,59,36,12,69,15,46,5,82,11};
+        cout << "count of the length that is greater than 20 : " << count(arr);
+    }
+    else if (avrg < 15)
+    {
+        vector<int> arr = {21,8,11,23,8,57,8,9,36,3,69,23,2,18,6,23};
+        cout << "first occurence of a length that is less than 10 : " << firstOccurence(arr);
+    }
+    else
+    {
+        vector<int> arr = {2, 3, 7, 1, 9,8,10,5,7,8};
+        cout<<"Sum of the lengths is : "<<sumofLengths(arr);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+9. If the sum of 20 item weights is greater than 1000 kg, call a function that counts the number of weights that are greater than 50 kg. 
+If the sum is less than 1000 kg, call a function that finds the number of occurrences of a specific weight. 
+If the sum is exactly 1000 kg, call a function that returns an array of weights where each element is reduced by 5 kg.
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> reducedby5(vector<int> &arr)
+{
+    vector<int> reduced;
+    for (auto it : arr)
+    {
+        reduced.push_back(it - 5);
+    }
+    return reduced;
+}
+
+int occurence(vector<int> &arr, int &key)
+{
+    int count = 0;
+    for (auto it : arr)
+    {
+        if (it == key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int counts(vector<int> &arr)
+{
+    int count = 0;
+    for (auto weight : arr)
+    {
+        if (weight > 50)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 20;
+    long long sum = 0;
+    vector<int> arr(n);
+    cout << "Enter the weight : \n";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+    }
+    cout << "The sum of weight is  : " << sum << "\n";
+    if (sum > 1000)
+    {
+        vector<int> arr = {67, 23, 34, 45, 56, 67, 78, 89, 90, 13, 25, 36, 47, 58, 68, 89, 76, 54, 59};
+        cout << "counts of the number of weights that are greater than 50kg. : " << counts(arr);
+    }
+    else if (sum < 1000)
+    {
+        vector<int> arr = {67, 78, 34, 78, 69, 67, 78, 69, 90, 78, 25, 78, 47, 58, 69, 89, 78, 54, 24};
+        int key;
+        cout << "Enter the key to find the number of occurences : ";
+        cin >> key;
+        cout << "Total number of occurences of a specific weight is : " << occurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {67, 78, 34, 69, 90, 67, 93, 78, 45, 68, 25, 58, 47, 84, 77, 57, 89, 54, 24};
+        vector<int> newarr = reducedby5(arr);
+        for (auto it : newarr)
+        {
+            cout << it << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+==========================================================================================================================================================
+10. If the product of 5 item dimensions (width × height) is greater than 5000, call a function that separates dimensions into multiples of 10 and non-multiples. 
+If the product is less than 5000, call a function that finds the first occurrence of a dimension below 20. 
+If the product is exactly 5000, call a function that finds the last occurrence of a dimension above 100.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+vector<vector<int>> multiple_notMultipleof10(vector<int> &arr)
+{
+    vector<int> multipleof10;
+    vector<int> notMultipleof10;
+    for (auto it : arr)
+    {
+        if (it % 10 == 0)
+        {
+            multipleof10.push_back(it);
+        }
+        else if (it % 10 != 0)
+        {
+            notMultipleof10.push_back(it);
+        }
+    }
+    return {multipleof10, notMultipleof10};
+}
+
+int main()
+{
+    int n = 5;
+    long long product = 1;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        int width, height;
+        cout << "Item " << (i + 1) << " - Width and Height : ";
+        cin >> width >> height;
+        arr[i] = width * height;
+        product *= arr[i];
+    }
+    cout << "The product of dimensions is  : " << product << "\n";
+    if (product > 5000)
+    {
+        vector<int> arr = {12, 23, 90, 30, 45, 56, 80, 50, 46, 70, 10, 44, 40, 36, 50, 59, 55, 37, 90};
+        vector<vector<int>> newarr = multiple_notMultipleof10(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 5000)
+    {
+        vector<int> arr = {23, 90, 20, 11, 56, 80, 50, 11, 70, 10, 44, 40, 36, 50, 59, 11, 37, 90};
+        int key;
+        cout << "Enter the key below 20 : ";
+        cin >> key;
+        if (key < 20)
+        {
+            cout << "First occurence of a dimension below 20 is : " << firstOccurence(arr, key);
+        }
+        else 
+        {
+            cout<<"Enter dimension below 20 for finds first occurence.";
+        }
+    }
+    else
+    {
+        vector<int> arr = {23, 117, 20, 11, 117, 80, 50, 117, 70, 10, 117, 40, 36, 50, 59, 117, 37, 90};
+        int key;
+        cout << "Enter the key above 100 : ";
+        cin >> key;
+        if (key > 100)
+        {
+            cout << "Last occurence of a dimension above 100 is : " << lastOccurence(arr, key);
+        }
+        else
+        {
+            cout<<"Enter dimension above 100 for finds last occurence.";
+        }
+    }
+    return 0;
+}
+==========================================================================================================================================================
+12. If the sum of 15 total sales is greater than 12000, call a function that counts the number of sales that are above 500. 
+If the sum is less than 12000, call a function that finds the number of occurrences of a specific sale amount. 
+If the sum is exactly 12000, call a function that returns an array of sales where each amount is squared.
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> squareofeachElement(vector<int> &arr)
+{
+    vector<int> square;
+    for (auto it : arr)
+    {
+        square.push_back(it * it);
+    }
+    return square;
+}
+
+int occurence(vector<int> &arr, int &key)
+{
+    int count = 0;
+    for (auto it : arr)
+    {
+        if (it == key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int counts(vector<int> &arr)
+{
+    int count = 0;
+    for (auto amount : arr)
+    {
+        if (amount > 500)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 15;
+    long long sum = 0;
+    vector<int> arr(n);
+    cout << "Enter the weight : \n";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+    }
+    cout << "The sum of weight is  : " << sum << "\n";
+    if (sum > 12000)
+    {
+        vector<int> arr = {180, 374, 823, 892, 710, 200, 309, 824, 613, 596, 374, 684, 342, 170, 576, 252, 519};
+        cout << "counts of the number of sales that are greater than 500 : " << counts(arr);
+    }
+    else if (sum < 12000)
+    {
+        vector<int> arr = {180, 374, 823, 892, 374, 200, 309, 374, 613, 596, 374, 684, 342, 374, 576, 252, 374};
+        int key;
+        cout << "Enter the key to find the number of occurences : ";
+        cin >> key;
+        cout << "Total number of occurences of a specific sale amount is : " << occurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 24, 34, 46, 56, 21, 76, 98, 23, 7, 23, 52, 1, 24, 1, 54};
+        vector<int> newarr = squareofeachElement(arr);
+        for (auto it : newarr)
+        {
+            cout << it << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+==========================================================================================================================================================
+13. If the product of 12 different item lengths is greater than 2000, call a function that separates lengths into prime and non-prime values. 
+If the product is less than 2000, call a function that finds the first occurrence of a specific length. 
+If the product is exactly 2000, call a function that finds the last occurrence of a specific length.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+bool isPrime(int n)
+{
+    if (n == 1 || n == 0 || n < 0)
+    {
+        return false;
+    }
+    for (int i = 2; i < n / 2; i++)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<vector<int>> prime_nonPrime(vector<int> &arr)
+{
+    vector<int> prime;
+    vector<int> nonPrime;
+    for (auto num : arr)
+    {
+        if (isPrime(num))
+        {
+            prime.push_back(num);
+        }
+        else
+        {
+            nonPrime.push_back(num);
+        }
+    }
+    return {prime, nonPrime};
+}
+
+int main()
+{
+    int n = 12;
+    long long product = 1;
+    cout << "Enter the value of lengths  : \n";
+    vector<int> arr(n);
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        product *= it;
+    }
+    cout << "The product of lentgths is  : " << product << "\n";
+    if (product > 2000)
+    {
+        vector<int> arr = {18, 10, -25, 13, -78, 17, -42, 23, 9, -17, 12, 5, 23, 24, 53, 19, 37};
+        vector<vector<int>> newarr = prime_nonPrime(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 2000)
+    {
+        vector<int> arr = {12, 13, 34, 54, 3, 7, 93, 89, 13, 38, 55, 3, 37, 13, 3};
+        int key;
+        cout << "Enter a length to find first occurence : ";
+        cin >> key;
+        cout << "First occurence of given length is : " << firstOccurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {2, 8, 33, 53, 8, 61, 10, 2, 90, 38, 55, 2, 37, 17, 33};
+        int key;
+        cout << "Enter a review to find last occurence : ";
+        cin >> key;
+        cout << "Last occurence of given value is : " << lastOccurence(arr, key);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+14. If the average age of 10 employees is greater than 35, call a function that counts the number of employees older than 40. 
+If the average age is less than 35, call a function that finds the first occurrence of an employee younger than 30. 
+If the average age is exactly 35, call a function that calculates the sum of the ages.
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumofAges(vector<int>&arr)
+{
+    int sumofage=0;
+    for(auto age:arr)
+    {
+        sumofage+=age;
+    }
+    return sumofage;
+}
+
+int firstOccurence(vector<int> &arr)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < 30)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int count(vector<int> &arr)
+{
+    int count = 0;
+    for (auto age : arr)
+    {
+        if (age > 40)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 10;
+    float avrg = 0.0, sum = 0.0;
+    vector<float> arr(n);
+    cout << "Enter the age of employye: ";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+        avrg = sum / arr.size();
+    }
+    cout << "The average of age is  : " << avrg << "\n";
+    if (avrg > 35)
+    {
+        vector<int> arr = {18,23,29,37,48,57,48,59,36,59,69,79,46,80,82,64};
+        cout << "count of the Employees older than 40 : " << count(arr);
+    }
+    else if (avrg < 35)
+    {
+        vector<int> arr = {38,33,53,23,48,57,23,59,36,22,69,23,46,18,82,23};
+        cout << "first occurence of an employee younger than 30 is : " << firstOccurence(arr);
+    }
+    else
+    {
+        vector<int> arr = {2, 3, 7, 1, 9,8,10,5,7,8};
+        cout<<"Sum of the ages is : "<<sumofAges(arr);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+15. If the sum of 12 quantities sold is greater than 1000, call a function that counts the number of even quantities sold. 
+If the sum is less than 1000, call a function that finds the number of occurrences of a specific quantity sold. 
+If the sum is exactly 1000, call a function that returns an array of quantities where each quantity is incremented by 5.
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> incrementedby5(vector<int> &arr)
+{
+    vector<int> increment5;
+    for (auto it : arr)
+    {
+        increment5.push_back(it +5);
+    }
+    return increment5;
+}
+
+int occurence(vector<int> &arr, int &key)
+{
+    int count = 0;
+    for (auto it : arr)
+    {
+        if (it == key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int counts(vector<int> &arr)
+{
+    int count = 0;
+    for (auto quantities : arr)
+    {
+        if (quantities % 2 == 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 12;
+    long long sum = 0;
+    vector<int> arr(n);
+    cout << "Enter the sold quantities : \n";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+    }
+    cout << "The sum of sold quantities is  : " << sum << "\n";
+    if (sum > 1000)
+    {
+        vector<int> arr = {18, 27, 39, 47, 27, 59, 26, 59, 25, 60, 36, 63, 90, 13, 28, 47, 36};
+        cout << "counts of the number of sold quantities that is even : " << counts(arr);
+    }
+    else if (sum < 1000)
+    {
+        vector<int> arr = {18, 43, 39, 47, 43, 59, 43, 59, 43, 60, 36, 63, 43, 13, 43, 47, 43};
+        int key;
+        cout << "Enter the key to find the number of occurences : ";
+        cin >> key;
+        cout << "Total number of occurences of a specific sold quantity is : " << occurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 24, 34, 46, 56, 21, 76, 98, 23, 7, 23, 52, 1, 24, 1, 54};
+        vector<int> newarr = incrementedby5(arr);
+        for (auto it : newarr)
+        {
+            cout << it << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+==========================================================================================================================================================
+16. If the product of 10 review scores is greater than 100, call a function that separates scores into positive and negative values. 
+If the product is less than 100, call a function that finds the first occurrence of a specific score. 
+If the product is exactly 100, call a function that finds the last occurrence of a specific score.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+vector<vector<int>> positive_negative(vector<int> &arr)
+{
+    vector<int> positive;
+    vector<int> negative;
+    for (auto num : arr)
+    {
+        if (num > 0)
+        {
+            positive.push_back(num);
+        }
+        else if (num < 0)
+        {
+            negative.push_back(num);
+        }
+    }
+    return {positive, negative};
+}
+
+int main()
+{
+    int n = 10;
+    long long product = 1;
+    cout << "Enter the review  : \n";
+    vector<int> arr(n);
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        product *= it;
+    }
+    cout << "The product is : " << product << "\n";
+    if (product > 100)
+    {
+        vector<int> arr = {18, 10, -25, 76, -78, 35, -42, 23, 43, -54, 12, 5, -32, 24, 53, -41, -20};
+        vector<vector<int>> newarr = positive_negative(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 100)
+    {
+        vector<int> arr = {12, 3, 34, 45, 13, 67, 13, 89, 13, 88, 55, 13, 37, 13, 33};
+        int key;
+        cout << "Enter a review to find first occurence : ";
+        cin >> key;
+        cout << "First occurence of given value is : " << firstOccurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 18, 34, 45, 18, 67, 18, 89, 90, 88, 55, 18, 37, 95, 33};
+        int key;
+        cout << "Enter a review to find last occurence : ";
+        cin >> key;
+        cout << "Last occurence of given value is : " << lastOccurence(arr, key);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+17. If the average number of items per category over 25 categories is greater than 50, call a function that counts the number of categories with more than 75 items. 
+If the average is less than 50, call a function that finds the first occurrence of a category with fewer than 25 items. 
+If the average is exactly 50, call a function that calculates the sum of the items in each category.
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumofItems(vector<int> &item)
+{
+    int sumofitem = 0;
+    for (auto it : item)
+    {
+        sumofitem += it;
+    }
+    return sumofitem;
+}
+
+int firstOccurence(vector<int> &item)
+{
+    int index = -1;
+    for (int i = 0; i < item.size(); i++)
+    {
+        if (item[i] < 25)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int itemabove75(vector<int> &item)
+{
+    int count = 0;
+    for (auto it : item)
+    {
+        if (it > 75)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int category = 25;
+    vector<int> item(category);
+    float totalitem = 0.0, averageitem = 0.0;
+    for (int i = 0; i < category; i++)
+    {
+        cout << "Enter the quantity of item in category " << (i + 1) << " : ";
+        cin >> item[i];
+        totalitem += item[i];
+        averageitem = totalitem / category;
+    }
+    cout << "The average of items is : " << averageitem << "\n";
+    if (averageitem > 50)
+    {
+        cout << "Total number of categories with more than 75 items : " << itemabove75(item);
+    }
+    else if (averageitem < 50)
+    {
+        cout << "First occurence of a category with fewer than 25 items : " << firstOccurence(item);
+    }
+    else
+    {
+        vector<int> item(category);
+        for (int i = 0; i < category; i++)
+        {
+            cout << "Enter the quantity of item in category " << (i + 1) << " : ";
+            cin >> item[i];
+        }
+        cout << "sum of items in each category : " << sumofItems(item);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+18. If the sum of 20 item dimensions (length × width) is greater than 30000, call a function that counts the number of dimensions that are multiples of 50. 
+If the sum is less than 30000, call a function that finds the number of occurrences of a specific dimension. 
+If the sum is exactly 30000, call a function that returns an array of dimensions where each element is incremented by 10.
+
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> incrementedby10(vector<int> &arr)
+{
+    vector<int> increment10;
+    for (auto it : arr)
+    {
+        increment10.push_back(it + 10);
+    }
+    return increment10;
+}
+
+int occurence(vector<int> &arr, int &key)
+{
+    int count = 0;
+    for (auto it : arr)
+    {
+        if (it == key)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int counts(vector<int> &arr)
+{
+    int count = 0;
+    for (auto dimension : arr)
+    {
+        if (dimension % 50 == 0)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 20;
+    long long sum = 0;
+    vector<int> arr(n);
+    cout << "Enter the sold quantities : \n";
+    for (int i = 0; i < n; i++)
+    {
+        int length, width;
+        cout<<"Enter the item "<<(i+1)<<" Length and width : ";
+        cin >> length >> width;
+        arr[i]=length+width;
+        sum+=arr[i];
+    }
+    cout << "The sum of Dimensions is  : " << sum << "\n";
+    if (sum > 30000)
+    {
+        vector<int> arr = {18, 150, 100, 47, 50, 590, 26, 920, 250, 600, 306, 630, 90, 13, 228, 71, 33};
+        cout << "counts of the number of dimensions that are multiple of 50 : " << counts(arr);
+    }
+    else if (sum < 30000)
+    {
+        vector<int> arr = {18, 43, 39, 47, 43, 59, 43, 59, 43, 60, 36, 63, 43, 13, 43, 47, 43};
+        int key;
+        cout << "Enter the key to find the number of occurences : ";
+        cin >> key;
+        cout << "Total number of occurences of a specific dimension is : " << occurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 24, 34, 46, 56, 21, 76, 98, 23, 7, 23, 52, 1, 24, 1, 54};
+        vector<int> newarr = incrementedby10(arr);
+        for (auto it : newarr)
+        {
+            cout << it << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+==========================================================================================================================================================
+19. If the product of 15 item quantities is greater than 4000, call a function that separates quantities into multiples of 5 and non-multiples. 
+If the product is less than 4000, call a function that finds the first occurrence of a quantity of a specific value. 
+If the product is exactly 4000, call a function that finds the last occurrence of a quantity of a specific value.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+        }
+    }
+    return index;
+}
+
+int firstOccurence(vector<int> &arr, int &key)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == key)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+vector<vector<int>> multipleandnotmultipleof5(vector<int> &arr)
+{
+    vector<int> multipleof5;
+    vector<int> notmultipleof5;
+    for (auto num : arr)
+    {
+        if (num % 5 == 0)
+        {
+            multipleof5.push_back(num);
+        }
+        else if (num % 5 != 0)
+        {
+            notmultipleof5.push_back(num);
+        }
+    }
+    return {multipleof5, notmultipleof5};
+}
+
+int main()
+{
+    int n = 15;
+    long long product = 1;
+    cout << "Enter the quantity of items  : \n";
+    vector<int> arr(n);
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        product *= it;
+    }
+    cout << "The product is : " << product << "\n";
+    if (product > 4000)
+    {
+        vector<int> arr = {12, 23, 34, 45, 56, 67, 78, 89, 90, 88, 55, 15, 37, 95, 33};
+        vector<vector<int>> newarr = multipleandnotmultipleof5(arr);
+        for (auto num : newarr)
+        {
+            for (auto it : num)
+            {
+                cout << it << " ";
+            }
+            cout << "\n";
+        }
+    }
+    else if (product < 4000)
+    {
+        vector<int> arr = {12, 18, 34, 45, 18, 67, 18, 89, 90, 88, 55, 18, 37, 95, 33};
+        int key;
+        cout << "Enter a quantity to find first occurence : ";
+        cin >> key;
+        cout << "First occurence of given value is : " << firstOccurence(arr, key);
+    }
+    else
+    {
+        vector<int> arr = {12, 18, 34, 45, 18, 67, 18, 89, 90, 88, 55, 18, 37, 95, 33};
+        int key;
+        cout << "Enter a quantity to find last occurence : ";
+        cin >> key;
+        cout << "Last occurence of given value is : " << lastOccurence(arr, key);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+20. If the average weight of 10 items is greater than 3 kg, call a function that counts the number of items weighing more than 5 kg. 
+If the average weight is less than 3 kg, call a function that finds the first occurrence of an item weighing less than 2 kg. 
+If the average weight is exactly 3 kg, call a function that calculates the sum of the weights.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumofArr(vector<int>&arr)
+{
+    int sumofweight=0;
+    for(auto weight:arr)
+    {
+        sumofweight+=weight;
+    }
+    return sumofweight;
+}
+
+int firstOccurence(vector<int> &arr)
+{
+    int index = -1;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] < 2)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int count(vector<int> &arr)
+{
+    int count = 0;
+    for (auto weight : arr)
+    {
+        if (weight > 5)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 10;
+    float avrg = 0.0, sum = 0.0;
+    vector<float> arr(n);
+    cout << "Enter the weight : ";
+    for (auto &it : arr)
+    {
+        cin >> it;
+    }
+    for (auto it : arr)
+    {
+        sum += it;
+        avrg = sum / arr.size();
+    }
+    cout << "The average of weight is  : " << avrg << "\n";
+    if (avrg > 3)
+    {
+        vector<int> arr = {1, 2, 3, 7, 0, 9, 5, 6, 9, 8, 7, 3, 5, 7, 9, 12, 8, 5, 9, 7, 5, 9};
+        cout << "count of the weight that is greater than 5kg : " << count(arr);
+    }
+    else if (avrg < 3)
+    {
+        vector<int> arr = {2, 3, 7, 1, 9, 5, 1, 9, 8, 7, 1, 5, 7, 9, 12, 8, 1, 9, 7, 5, 9};
+        cout << "first occurence of the weight that is less than 2kg : " << firstOccurence(arr);
+    }
+    else
+    {
+        vector<int> arr = {2, 3, 7, 1, 9,8};
+        cout<<"Sum of the weights is : "<<sumofArr(arr);
+    }
+    return 0;
+}
+==========================================================================================================================================================
+11. If the average discount on 25 items is greater than 20%, call a function that counts the number of items with discounts over 30%. 
+If the average discount is less than 20%, call a function that finds the first occurrence of an item with a discount below 10%. 
+If the average discount is exactly 20%, call a function that calculates the sum of the digits of the discounts.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int sumofDigit(vector<int> &item)
+{
+    int sum = 0;
+    for (int discount : item)
+    {
+        while (discount > 0)
+        {
+            sum += discount % 10;
+            discount /= 10;
+        }
+    }
+    return sum;
+}
+
+int firstOccurence(vector<int> &item)
+{
+    int index = -1;
+    for (int i = 0; i < item.size(); i++)
+    {
+        if (item[i] < 10)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+int countofItem(vector<int> &item)
+{
+    int count = 0;
+    for (auto it : item)
+    {
+        if (it > 30)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int items = 3;
+    vector<int> item(items);
+    float totaldiscount = 0.0, averagediscount = 0.0;
+    for (int i = 0; i < items; i++)
+    {
+        cout << "Enter the Discount on item " << (i + 1) << " : ";
+        cin >> item[i];
+        totaldiscount += item[i];
+        averagediscount = totaldiscount / items;
+    }
+    cout << "The average of discount is : " << averagediscount << "\n";
+    if (averagediscount > 20)
+    {
+        vector<int> item(items);
+        for (int i = 0; i < items; i++)
+        {
+            cout << "Enter the Discount on item " << (i + 1) << " : ";
+            cin >> item[i];
+        }
+        cout << "Total number of items with discount over 30% is : " << countofItem(item);
+    }
+    else if (averagediscount < 20)
+    {
+        vector<int> item(items);
+        for (int i = 0; i < items; i++)
+        {
+            cout << "Enter the Discount on item " << (i + 1) << " : ";
+            cin >> item[i];
+        }
+        cout << "First occurence of an item with a discount below 10% is : " << firstOccurence(item);
+    }
+    else
+    {
+        vector<int> item(items);
+        for (int i = 0; i < items; i++)
+        {
+            cout << "Enter the Discount on item " << (i + 1) << " : ";
+            cin >> item[i];
+        }
+        cout << "Sum of the digits of the discount is : " << sumofDigit(item);
+    }
+    return 0;
+}
+==========================================================================================================================================================
